@@ -10,3 +10,4 @@ Contributors
 ------------
 
 * Warren Joseph Ramos <wramos1@msudenver.edu>
+* Jacob Netwal <jnetwal@msudenver.edu>
