@@ -1,11 +1,7 @@
-#rachel <- 8
-#warren <- 10
-#jacob <- 12
-#andres <- 16
+
 
 group <- NULL
 hours <- NULL
-#group <- c(andres, jacob, rachel, warren)
 names <- c("Andres", "Jacob", "Rachel", "Warren")
 i <- 1
 
@@ -16,10 +12,7 @@ while(i < length(names) + 1) {
 }
 group <- as.numeric(group)
 
-
 sprintNum <- readline(prompt = "Which sprint is this?       ")
-
-#sprint <- "Sprint 2"
 sprint <- cat("Sprint", sprintNum)
 
 pdf(paste(sprint, ".pdf", sep = ""))
