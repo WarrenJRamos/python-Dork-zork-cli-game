@@ -10,7 +10,7 @@ names <- c("Andres", "Jacob", "Rachel", "Warren")
 i <- 1
 
 while(i < length(names) + 1) {
-  hours <- readline(paste("How many hours did ", names[i], " work?  " ))
+  hours <- readline(paste("How many hours did", names[i], "work?        " ))
   group <- c(group, hours)  
   i <- i + 1
 }
