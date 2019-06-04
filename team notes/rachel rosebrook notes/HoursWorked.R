@@ -21,5 +21,7 @@ barplot(group, names.arg = names,
         main = "Hours Worked", cex.main = 2,
         sub = sprint, cex.sub = 1.5, 
         cex.lab = 1.4, 
-        ylim = c(0, 20))
+        ylim = c(0, 40))
+abline(a = 24, b = 0)
+
 dev.off()
