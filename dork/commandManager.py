@@ -99,16 +99,16 @@ class CommandManager:
             gameOver = True
             pass
         elif inputLine[0:8] == "go north":
-            print("You went North!")
+            Room1Printing.print_move("room 1", "north")
             pass
         elif inputLine[0:8] == "go south":
-            print("You went South!")
+            Room1Printing.print_move("room 1", "south")
             pass
         elif inputLine[0:7] == "go east":
-            print("You went East!")
+            Room1Printing.print_move("room 1", "east")
             pass
         elif inputLine[0:7] == "go west":
-            print("You went West!")
+            Room1Printing.print_move("room 1", "west")
             pass
         elif inputLine == "go":
             print("Go where?")
