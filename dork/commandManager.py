@@ -1,17 +1,22 @@
 #Command keyword arrays
+from dork.room_printing import Room1Printing
 import sys
 class CommandManager:
 
     inputLine = "" #Main Command
-    gameOver = False
     inputHelper = "" #Helper Command (usually an object)
+    gameOver = False
+    health = 5
+    playerInventory = [""]
 
     def start():
         print("Welcome to Dork!")
-        print("You are in a dark room")
         global gameOver
         global inputLine
+        global health
+        global playerInventory
         gameOver = False
+        playerInventory = [""]
 
     def checkGameOver():
         global gameOver
@@ -19,6 +24,13 @@ class CommandManager:
             return True
         else:
             return False
+
+    def setGameOver(bool):
+        global gameOver
+        if bool == True:
+            gameOver = True
+        if bool == False:
+            gameOver = False
 
     def readCommand():
         global inputLine
@@ -29,9 +41,15 @@ class CommandManager:
         west = ['west', 'w', 'left'] #west
         go = ['move', 'walk', 'run', 'skip', 'hop', 'crawl', 'scoot', 'wander', 'meander', 'go'] #go
 
-        look = ['examine', 'look', 'see', 'peer', 'view'] #examine
+        look = ['look', 'see', 'peer', 'view'] #examine
         get = ['grab', 'get', 'take'] #get
         put = ['put', 'set', 'lay'] #put
+
+        eat = ['eat'] # Player eats
+        feed = ['feed'] # -> Gives food
+        inventory = ['inventory']
+
+
 
         #Shortcut checks & Dictionary breakdown
         inputLine = input("")
@@ -54,14 +72,28 @@ class CommandManager:
         elif inputLine[0:4] in get:
             inputHelper = inputLine[5:len(inputLine)]
             inputLine = "get"
-        elif (inputLine[0:3] in look or inputLine[0:4] in look or inputLine[0:5] in look or inputLine[0:7] in look):
-            inputLine = "examine"
+        elif inputLine[0:3] in look:
+            inputHelper = inputLine[4:len(inputLine)]
+            inputLine = "look"
+        elif inputLine[0:4] in look:
+            inputHelper = inputLine[5:len(inputLine)]
+            inputLine = "look"
+        elif inputLine[0:3] in eat:
+            inputHelper = inputLine[4:len(inputLine)]
+            inputLine = "eat"
+        elif inputLine[0:4] in feed:
+            inputHelper = inputLine[5:len(inputLine)]
+            inputLine = "feed"
+        elif inputLine in inventory:
+            inputLine = "inventory"
 
     def executeCommand():
         global gameOver
         global inputLine
         global inputHelper
-        print(inputLine[0:2] + "   " + inputLine[3:8]) #Debugging
+        global health
+        global playerInventory
+        #print(inputLine[0:2] + "   " + inputLine[3:8]) #Debugging
         if inputLine == "exit":
             print("Bye!")
             gameOver = True
@@ -81,14 +113,28 @@ class CommandManager:
         elif inputLine == "go":
             print("Go where?")
             pass
-        elif inputLine == "examine":
-            print("You are in a room & its very dark.")
+        elif inputLine == "look":
+            Room1Printing.print_look(inputHelper)
+            if inputHelper != "north" and inputHelper != "south" and inputHelper != "west" and inputHelper != "east":
+                Room1Printing.print_examine(inputHelper)
         elif inputLine == "get":
             print("Command "+inputLine)
             print("Object "+inputHelper)
+            Room1Printing.print_get(inputHelper)
+            playerInventory.append(inputHelper)
         elif inputLine == "put":
             print("Command "+inputLine)
             print("Object "+inputHelper)
+        elif inputLine == "eat":
+            print("Command "+inputLine)
+            print("Object "+inputHelper)
+            Room1Printing.print_eat_food(inputHelper)
+        elif inputLine == "feed":
+            print("Command "+inputLine)
+            print("Object "+inputHelper)
+            Room1Printing.print_feed_creature(inputHelper)
+        elif inputLine == "inventory":
+            Room1Printing.print_inventory(playerInventory)
         else:
             print("Invalid Command!")
             
