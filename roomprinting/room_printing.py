@@ -23,8 +23,12 @@ class Room1Printing():
                 print("There is a beautiful garden with the roadrunner’s nest right " +
                       "in the center of the garden. The nest has eggs that look about " +
                       "ready to hatch but no roadrunner parent to be seen.")
-        else:
-            pass
+        elif room == "room 2":
+            print("CHANGE THIS LATER BECAUSE MIGHT CHANGE DESIGN STRATEGY IN FUTURE SPRINT")
+        elif room == "room 2":
+            print("CHANGE THIS LATER")
+        elif room == "room 2":
+            print("CHANGE THIS LATER")
 
     @classmethod
     def print_look(cls, direction):
