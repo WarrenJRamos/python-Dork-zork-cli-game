@@ -2,8 +2,9 @@
 import sys
 class CommandManager:
 
-    inputLine = ""
+    inputLine = "" #Main Command
     gameOver = False
+    inputHelper = "" #Helper Command (usually an object)
 
     def start():
         print("Welcome to Dork!")
@@ -21,6 +22,7 @@ class CommandManager:
 
     def readCommand():
         global inputLine
+        global inputHelper
         north = ['up', 'north', 'n'] #north
         south = ['down', 'south', 's'] #south
         east = ['east', 'e', 'right'] #est
@@ -28,9 +30,10 @@ class CommandManager:
         go = ['move', 'walk', 'run', 'skip', 'hop', 'crawl', 'scoot', 'wander', 'meander', 'go'] #go
 
         look = ['examine', 'look', 'see', 'peer', 'view'] #examine
-        get = ['grab', 'pick up', 'get', 'take'] #get
+        get = ['grab', 'get', 'take'] #get
         put = ['put', 'set', 'lay'] #put
 
+        #Shortcut checks & Dictionary breakdown
         inputLine = input("")
         if inputLine in north:
             inputLine = "go north"
@@ -40,19 +43,24 @@ class CommandManager:
             inputLine = "go east"
         elif inputLine in west:
             inputLine = "go west"
-        elif inputLine[0:2] in go or inputLine[0:3] or inputLine[0:4] or inputLine[0:5]:
+        elif (inputLine[0:2] in go or inputLine[0:3] in go or inputLine[0:4] in go or inputLine[0:5] in go) and (len(inputLine) < 6):
             inputLine = "go"
-        elif inputLine in look:
-            inputLine = "examine"
-        elif inputLine in get:
-            inputLine = "grab"
-        elif inputLine in put:
+        elif inputLine[0:3] in put:
+            inputHelper = inputLine[4:len(inputLine)]
             inputLine = "put"
-
+        elif inputLine[0:3] in get:
+            inputHelper = inputLine[4:len(inputLine)]
+            inputLine = "get"
+        elif inputLine[0:4] in get:
+            inputHelper = inputLine[5:len(inputLine)]
+            inputLine = "get"
+        elif (inputLine[0:3] in look or inputLine[0:4] in look or inputLine[0:5] in look or inputLine[0:7] in look):
+            inputLine = "examine"
 
     def executeCommand():
         global gameOver
         global inputLine
+        global inputHelper
         print(inputLine[0:2] + "   " + inputLine[3:8]) #Debugging
         if inputLine == "exit":
             print("Bye!")
@@ -71,8 +79,16 @@ class CommandManager:
             print("You went West!")
             pass
         elif inputLine == "go":
-            print("Go where")
+            print("Go where?")
             pass
+        elif inputLine == "examine":
+            print("You are in a room & its very dark.")
+        elif inputLine == "get":
+            print("Command "+inputLine)
+            print("Object "+inputHelper)
+        elif inputLine == "put":
+            print("Command "+inputLine)
+            print("Object "+inputHelper)
         else:
             print("Invalid Command!")
             
