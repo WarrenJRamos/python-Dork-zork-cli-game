@@ -1,14 +1,22 @@
-
+"""
+A class that validates a maze coming from a .yml/.yaml fiel
+"""
 import yaml
 from yamlreader import YamlReader
 from mazeroom import MazeRoom
 
 class ValidMaze():
+    """
+    A valid maze
+    """
     actual_maze = []
     room_names = []
     room_cardinals = []
     valid_cardinals = (['north', 'east', 'south', 'west'])
     def load_valid_maze(self):
+        """
+        Validating and loading the maze
+        """
 
         reader = YamlReader()
         validated = True
@@ -29,26 +37,34 @@ class ValidMaze():
             else:
                 validated = invalid_rooms or invalid_cardinals or no_double_directions
                 if invalid_rooms:
-                    print('\nPlease provide a file that contains a maze with no empty, null or repeated names for the rooms.\n')
+                    print('\nThe maze can not have empty, null or repeated names for the rooms.\n')
                 elif invalid_cardinals:
-                    print('\nPlease provide a file that contains a maze with the cardinal names for the rooms as follow:')
+                    print('\nThe maze must have the cardinal names for the rooms as follow:')
                     print(ValidMaze.valid_cardinals)
                 elif no_double_directions:
-                    print('\nPlease provide a file that contains a maze with rooms that have cardinals pointing to unique directions.\n')
+                    print('\nThe cardinals in the rooms must be pointing to unique directions.\n')
                 else:
                     print('The maze provided by the user has been uploaded successfully.')
 
     def load_rooms(self, maze):
-
+        """
+        Loading the room names
+        """
         for room_name in maze:
             ValidMaze.room_names = list(maze[room_name].keys())
 
     def load_cardinals(self, maze):
+        """
+        Loading the room cardinals
+        """
 
         for room_name in maze:
             ValidMaze.room_cardinals = list(maze[room_name].values())
 
     def check_rooms(self, maze):
+        """
+        Checking room names for uniqueness and valid names
+        """
 
         null_rooms = None in ValidMaze.room_names
         repeated_names = not len(set(ValidMaze.room_names)) == len(list(maze.values()))
@@ -56,6 +72,9 @@ class ValidMaze():
         return invalid_rooms
 
     def check_cardinals(self):
+        """
+        Checking for valid cardinals in each room
+        """
 
         invalid_cardinal = False
 
@@ -67,6 +86,9 @@ class ValidMaze():
                 continue
         return invalid_cardinal
     def check_dual_directions(self):
+        """
+        Checking for cardinals to be pointing to unique directions
+        """
 
         dual_pointer = False
         for i in range(len(ValidMaze.room_cardinals)):
@@ -83,6 +105,9 @@ class ValidMaze():
         return dual_pointer
 
     def maze_assembly(self):
+        """
+        Appending rooms to the maze
+        """
 
         for i in range(len(ValidMaze.room_names)):
             room = MazeRoom(ValidMaze.room_names[i],
@@ -93,6 +118,9 @@ class ValidMaze():
             ValidMaze.actual_maze.append(room)
 
     def print_actual_maze(self):
+        """
+        Printing the maze
+        """
 
         print('\n')
         print('The rooms are: \n')
@@ -113,9 +141,9 @@ class ValidMaze():
             print('\n \n')
 
 if __name__ == "__main__":
-    maze_1 = ValidMaze()
+    MAZE_1 = ValidMaze()
 
-    maze_1.load_valid_maze()
-    maze_1.maze_assembly()
-    maze_1.print_actual_maze()
+    MAZE_1.load_valid_maze()
+    MAZE_1.maze_assembly()
+    MAZE_1.print_actual_maze()
     
