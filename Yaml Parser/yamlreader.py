@@ -3,13 +3,13 @@ import os
 
 class YamlReader:
 
-    def valid_path(self):
+    def valid_path_file(self):
 
         validated = True
 
         while validated:
 
-            file_path  = input('Please type a valid file path for your .yml or .yaml file: ')
+            file_path  = input('Please type a valid file path for your .yml or .yaml file:\n')
             valid_path = os.path.isfile(file_path)
             valid_extension = YamlReader.valid_yml_file(self, file_path)
 
@@ -27,7 +27,6 @@ class YamlReader:
         file_extension = os.path.splitext(file_path)
         valid_extension= file_extension[1] == '.yml' or file_extension[1] == '.yaml'
         return valid_extension
-
 
     def yaml_loader(self, file_path):
         with open(file_path,"r") as file:
