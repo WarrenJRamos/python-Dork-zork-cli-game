@@ -1,3 +1,16 @@
+[Chapter 1 Welcome to Design Patterns](https://github.com/WarrenJRamos/Dork/blob/feature/notes/team%20notes/rachel%20rosebrook%20notes/HeadFirst.md#chapter-1-welcome-to-design-patterns)
+[Chapter 2 Keeping your Objects in the Know](https://github.com/WarrenJRamos/Dork/blob/feature/notes/team%20notes/rachel%20rosebrook%20notes/HeadFirst.md#chapter-2-keeping-your-objects-in-the-know)
+[Chapter 3 Decorating Objects](https://github.com/WarrenJRamos/Dork/blob/feature/notes/team%20notes/rachel%20rosebrook%20notes/HeadFirst.md#chapter-3-decorating-objects)
+[Chapter 4 Baking with OO Goodness](https://github.com/WarrenJRamos/Dork/blob/feature/notes/team%20notes/rachel%20rosebrook%20notes/HeadFirst.md#chapter-4-baking-with-oo-goodness)
+[Chapter 5 One of a Kind Objects](https://github.com/WarrenJRamos/Dork/blob/feature/notes/team%20notes/rachel%20rosebrook%20notes/HeadFirst.md#chapter-5-one-of-a-kind-objects)
+[Chapter 6 Encapsulating Invocation](https://github.com/WarrenJRamos/Dork/blob/feature/notes/team%20notes/rachel%20rosebrook%20notes/HeadFirst.md#chapter-6-encapsulating-invocation)
+[Chapter 7 Being Adaptive](https://github.com/WarrenJRamos/Dork/blob/feature/notes/team%20notes/rachel%20rosebrook%20notes/HeadFirst.md#chapter-7-being-adaptive)
+[Chapter 8 Encapsulating Algorithms](https://github.com/WarrenJRamos/Dork/blob/feature/notes/team%20notes/rachel%20rosebrook%20notes/HeadFirst.md#chapter-8-encapsulating-algorithms)
+[Chapter 9 Well-Managed Collections](https://github.com/WarrenJRamos/Dork/blob/feature/notes/team%20notes/rachel%20rosebrook%20notes/HeadFirst.md#chapter-9-well-managed-collections)
+[Chapter 10 The State of Things](https://github.com/WarrenJRamos/Dork/blob/feature/notes/team%20notes/rachel%20rosebrook%20notes/HeadFirst.md#chapter-10-the-state-of-things)
+[Chapter 11 Controlling Object Access](https://github.com/WarrenJRamos/Dork/blob/feature/notes/team%20notes/rachel%20rosebrook%20notes/HeadFirst.md#chapter-11-controlling-object-access)
+[Chapter 12 Pattern of Patterns](https://github.com/WarrenJRamos/Dork/blob/feature/notes/team%20notes/rachel%20rosebrook%20notes/HeadFirst.md#chapter-12-pattern-of-patterns)
+
 # Chapter 1 Welcome to Design Patterns
 ## Principals:
 - Identify the aspects of your application that vary and separate them from what stays the same
