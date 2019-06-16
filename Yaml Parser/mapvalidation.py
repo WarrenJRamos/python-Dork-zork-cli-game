@@ -1,7 +1,7 @@
 
 import yaml
 from yamlreader import YamlReader
-from mazeroom import MazeRoom 
+from mazeroom import MazeRoom
 
 class ValidMaze():
     actual_maze = []
@@ -11,13 +11,12 @@ class ValidMaze():
     def load_valid_maze(self):
 
         reader = YamlReader()
-       
         validated = True
         invalid_rooms = True
         invalid_cardinals = True
         no_double_directions = True
 
-        while validated:  
+        while validated:
             try:
                 maze = reader.valid_path_file()
                 ValidMaze.load_rooms(self, maze)
@@ -51,11 +50,9 @@ class ValidMaze():
 
     def check_rooms(self, maze):
 
-        null_rooms  = None in ValidMaze.room_names
+        null_rooms = None in ValidMaze.room_names
         repeated_names = not len(set(ValidMaze.room_names)) == len(list(maze.values()))
-        
         invalid_rooms = null_rooms or repeated_names
-
         return invalid_rooms
 
     def check_cardinals(self):
@@ -63,25 +60,21 @@ class ValidMaze():
         invalid_cardinal = False
 
         for i in range(len(ValidMaze.room_cardinals)):
-            
             if list(ValidMaze.room_cardinals[i].keys()) != ValidMaze.valid_cardinals:
                 invalid_cardinal = True
                 break
             else:
                 continue
-            
         return invalid_cardinal
-    
-    def check_dual_directions (self):
+    def check_dual_directions(self):
 
         dual_pointer = False
-  
         for i in range(len(ValidMaze.room_cardinals)):
 
             adjacent_rooms = list(ValidMaze.room_cardinals[i].values())
-            adjacent_rooms [:] = (room for room in adjacent_rooms if room != None ) 
+            adjacent_rooms [:] = (room for room in adjacent_rooms if room is not None)
             unique_rooms = set(adjacent_rooms)
-            if not (len(adjacent_rooms) == len(unique_rooms)):
+            if not len(adjacent_rooms) == len(unique_rooms):
                 dual_pointer = True
                 break
             else:
@@ -92,8 +85,8 @@ class ValidMaze():
     def maze_assembly(self):
 
         for i in range(len(ValidMaze.room_names)):
-            room = MazeRoom( ValidMaze.room_names[i],
-                            ValidMaze.room_cardinals[i]['north'], 
+            room = MazeRoom(ValidMaze.room_names[i],
+                            ValidMaze.room_cardinals[i]['north'],
                             ValidMaze.room_cardinals[i]['east'],
                             ValidMaze.room_cardinals[i]['south'],
                             ValidMaze.room_cardinals[i]['west'])
@@ -105,28 +98,24 @@ class ValidMaze():
         print('The rooms are: \n')
 
         for i in range(len(ValidMaze.actual_maze)):
-            print('>' + ValidMaze.actual_maze[i].name )  
-        
-        print ('\n')
-        
-        
+            print('>' + ValidMaze.actual_maze[i].name)
+        print('\n')
         for i in range(len(ValidMaze.actual_maze)):
             print(ValidMaze.actual_maze[i].name + ' is adjacent to: ')
             print('>North:')
             print(ValidMaze.actual_maze[i].north)
             print('>East:')
             print(ValidMaze.actual_maze[i].east)
-            print('>South:' )
+            print('>South:')
             print(ValidMaze.actual_maze[i].south)
             print('>West:')
             print(ValidMaze.actual_maze[i].west)
             print('\n \n')
 
 if __name__ == "__main__":
-   
-    maze = ValidMaze()
+    maze_1 = ValidMaze()
 
-    maze.load_valid_maze()
-    maze.maze_assembly()
-    maze.print_actual_maze()
+    maze_1.load_valid_maze()
+    maze_1.maze_assembly()
+    maze_1.print_actual_maze()
     
