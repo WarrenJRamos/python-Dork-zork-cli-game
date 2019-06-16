@@ -24,8 +24,8 @@ class ValidMaze():
     def load_cardinals(self,maze):
 
         for room_name in maze:
-
              ValidMaze.room_cardinals = list(maze[room_name].values())
+
     def check_rooms(self):
 
         if len(ValidMaze.room_names) == 0:
@@ -72,8 +72,6 @@ class ValidMaze():
 
         return dual_pointer
 
-
-
     def maze_assembly(self):
 
         for i in range(len(ValidMaze.room_names)):
@@ -90,16 +88,20 @@ class ValidMaze():
         print('The rooms are: \n')
 
         for i in range(len(ValidMaze.actual_maze)):
-            print(ValidMaze.actual_maze[i].name )  
+            print('>' + ValidMaze.actual_maze[i].name )  
         
         print ('\n')
         
         
         for i in range(len(ValidMaze.actual_maze)):
             print (ValidMaze.actual_maze[i].name + ' is adjacent to: ')
+            print ('>North: ')
             print (ValidMaze.actual_maze[i].north)
+            print ('>East: ')
             print (ValidMaze.actual_maze[i].east)
+            print ('>South:' )
             print (ValidMaze.actual_maze[i].south)
+            print ('>West: ')
             print (ValidMaze.actual_maze[i].west)
             print ('\n \n' )
            
@@ -110,4 +112,5 @@ if __name__ == "__main__":
     
     maze.maze_assembly()
     maze.print_actual_maze()
+    
     
