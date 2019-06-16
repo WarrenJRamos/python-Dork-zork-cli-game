@@ -10,7 +10,7 @@ class YamlReader:
 
         while validated:
 
-            file_path  = input('Please type a valid file path for your .yml or .yaml file:\n')
+            file_path = input('Please type a valid file path for your .yml or .yaml file:\n')
             valid_path = os.path.isfile(file_path)
             valid_extension = YamlReader.valid_yml_file(self, file_path)
 
@@ -20,9 +20,8 @@ class YamlReader:
                 print(file_path + " is not a .yml or .yaml file.")
             else:
                 validated = False
-        
         return YamlReader.yaml_loader(self, file_path)
-    
+
     def valid_yml_file(self, file_path):
 
         file_extension = os.path.splitext(file_path)
