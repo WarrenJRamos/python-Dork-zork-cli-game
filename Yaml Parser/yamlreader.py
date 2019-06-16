@@ -1,5 +1,6 @@
-import yaml
 import os
+import yaml
+
 
 class YamlReader:
 
@@ -20,15 +21,15 @@ class YamlReader:
             else:
                 validated = False
         
-        return YamlReader.yaml_loader(self,file_path)
+        return YamlReader.yaml_loader(self, file_path)
     
-    def valid_yml_file(self ,file_path):
+    def valid_yml_file(self, file_path):
 
         file_extension = os.path.splitext(file_path)
-        valid_extension= file_extension[1] == '.yml' or file_extension[1] == '.yaml'
+        valid_extension = file_extension[1] == '.yml' or file_extension[1] == '.yaml'
         return valid_extension
 
     def yaml_loader(self, file_path):
-        with open(file_path,"r") as file:
-            data= yaml.safe_load(file)
+        with open(file_path, "r") as file:
+            data = yaml.safe_load(file)
         return data
