@@ -26,21 +26,19 @@ class ValidMaze():
                 ValidMaze.load_rooms(self, maze)
                 invalid_rooms = ValidMaze.check_rooms(self)
                 ValidMaze.load_cardinals(self, maze)
-                invalid_cardinals = ValidMaze.check_cardinals(self)
-                double_directions = ValidMaze.check_dual_directions(maze)
-                invalid_directions = ValidMaze.check_valid_directions(maze)
+                invalid_connections = ValidMaze.check_connections(self)
             except (TypeError, AttributeError, yaml.parser.ParserError):
                 print('\nPlease provide a file that contains a well formatted non-empty maze.\n')
             else:
                 if invalid_rooms:
                     print('\nThe maze can not have empty or null names for the rooms.\n')
-                elif invalid_cardinals:
+                elif invalid_connections:
+                    print('\nPlease assure that the uploaded maze fulfills these conditions:')
                     print('\nThe maze must have the cardinal names for the rooms as follow:')
                     print(ValidMaze.valid_cardinals)
-                elif double_directions:
                     print('\nThe cardinals in the rooms must be pointing to unique directions.\n')
-                elif invalid_directions:
                     print('\nThe cardinals in the rooms can not point to rooms out of the maze.\n')
+                    print('\nThere are not unreachable rooms in the maze.\n')
                 else:
                     validated = False
                     print('The maze provided by the user has been uploaded successfully.')
@@ -79,12 +77,13 @@ class ValidMaze():
             else:
                 continue
         return invalid_cardinal
-    def check_dual_directions(self):
+    def check_connections(self):
         """
-        Checking for cardinals to be pointing to unique directions
+        Checking for cardinals to be pointing to unique and valid directions
         """
-
         dual_pointer = False
+        invalid_direction = False
+        isolated_room = False
         for i in range(len(ValidMaze.room_cardinals)):
 
             adjacent_rooms = list(ValidMaze.room_cardinals[i].values())
@@ -93,27 +92,16 @@ class ValidMaze():
             if not len(adjacent_rooms) == len(unique_rooms):
                 dual_pointer = True
                 break
-            else:
-                continue
-
-        return dual_pointer
-
-    def check_valid_directions(self):
-        """
-        Checking for valid directions in each cardinal for each room
-        """
-        invalid_direction = False
-        for i in range(len(ValidMaze.room_cardinals)):
-
-            adjacent_rooms = list(ValidMaze.room_cardinals[i].values())
-            adjacent_rooms [:] = (room for room in adjacent_rooms if room is not None)
-            if not set(adjacent_rooms).issubset(set(ValidMaze.room_names)):
+            elif not set(adjacent_rooms).issubset(set(ValidMaze.room_names)):
                 invalid_direction = True
+                break
+            elif set(adjacent_rooms).issubset({None}):
+                isolated_room = True
                 break
             else:
                 continue
 
-        return invalid_direction
+        return dual_pointer or invalid_direction or isolated_room
 
     def maze_assembly(self):
         """
