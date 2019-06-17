@@ -4,6 +4,9 @@ A class that validates a maze coming from a .yml/.yaml file
 import yaml
 from yamlreader import YamlReader
 from mazeroom import MazeRoom
+import networkx as nx  
+import matplotlib.pyplot as plt 
+
 
 class ValidMaze():
     """
@@ -42,7 +45,7 @@ class ValidMaze():
                 else:
                     validated = False
                     print('The maze provided by the user has been uploaded successfully.')
-
+       
     def load_rooms(self, maze):
         """
         Loading the room names
@@ -89,7 +92,7 @@ class ValidMaze():
             adjacent_rooms = list(ValidMaze.room_cardinals[i].values())
             adjacent_rooms [:] = (room for room in adjacent_rooms if room is not None)
             unique_rooms = set(adjacent_rooms)
-            if not len(adjacent_rooms) == len(unique_rooms):
+            if len(adjacent_rooms) != len(unique_rooms):
                 dual_pointer = True
                 break
             elif not set(adjacent_rooms).issubset(set(ValidMaze.room_names)):
@@ -139,10 +142,25 @@ class ValidMaze():
             print(ValidMaze.actual_maze[i].west)
             print('\n \n')
 
+    def drawning_maze(self):
+           
+            G= nx.Graph()
+            G.add_node(ValidMaze.actual_maze[0])
+            G.add_node(ValidMaze.actual_maze[1])
+
+            pos = { ValidMaze.actual_maze[0]: (1,1),  
+                    ValidMaze.actual_maze[1] :(2,1)}
+
+            labels = {}
+            labels[ ValidMaze.actual_maze[0] ] = ValidMaze.actual_maze[0]
+
+            nx.draw_networkx_nodes(G, pos,  node_size= 1000, nodelist = [ ValidMaze.actual_maze[0], ValidMaze.actual_maze[1]]
+                                    , with_labels= True)
+            plt.show()
+
 if __name__ == "__main__":
     MAZE_1 = ValidMaze()
-
     MAZE_1.load_valid_maze()
     MAZE_1.maze_assembly()
-    MAZE_1.print_actual_maze()
-    
+    # MAZE_1.print_actual_maze()
+    MAZE_1.drawning_maze()
