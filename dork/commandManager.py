@@ -97,22 +97,16 @@ class CommandManager:
         if inputLine == "exit":
             print("Bye!")
             gameOver = True
-            pass
         elif inputLine[0:8] == "go north":
             Room1Printing.print_move("room 1", "north")
-            pass
         elif inputLine[0:8] == "go south":
             Room1Printing.print_move("room 1", "south")
-            pass
         elif inputLine[0:7] == "go east":
             Room1Printing.print_move("room 1", "east")
-            pass
         elif inputLine[0:7] == "go west":
             Room1Printing.print_move("room 1", "west")
-            pass
         elif inputLine == "go":
             print("Go where?")
-            pass
         elif inputLine == "look":
             Room1Printing.print_look("room 1", inputHelper)
             if inputHelper != "north" and inputHelper != "south" and inputHelper != "west" and inputHelper != "east":
