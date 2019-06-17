@@ -9,7 +9,7 @@ class CommandManager:
     health = 5
     playerInventory = [""]
 
-    def start():
+    def start(self):
         print("Welcome to Dork!")
         global gameOver
         global inputLine
@@ -18,21 +18,21 @@ class CommandManager:
         gameOver = False
         playerInventory = [""]
 
-    def checkGameOver():
+    def checkGameOver(self):
         global gameOver
         if gameOver == True:
             return True
         else:
             return False
 
-    def setGameOver(bool):
+    def setGameOver(self, bool):
         global gameOver
         if bool == True:
             gameOver = True
         if bool == False:
             gameOver = False
 
-    def readCommand():
+    def readCommand(self):
         global inputLine
         global inputHelper
         north = ['up', 'north', 'n'] #north
@@ -87,7 +87,7 @@ class CommandManager:
         elif inputLine in inventory:
             inputLine = "inventory"
 
-    def executeCommand():
+    def executeCommand(self):
         global gameOver
         global inputLine
         global inputHelper
@@ -114,7 +114,7 @@ class CommandManager:
             print("Go where?")
             pass
         elif inputLine == "look":
-            Room1Printing.print_look(inputHelper)
+            Room1Printing.print_look("room 1", inputHelper)
             if inputHelper != "north" and inputHelper != "south" and inputHelper != "west" and inputHelper != "east":
                 Room1Printing.print_examine(inputHelper)
         elif inputLine == "get":
@@ -138,5 +138,5 @@ class CommandManager:
         else:
             print("Invalid Command!")
             
-    def enterRoom():
+    def enterRoom(self):
         return
