@@ -15,7 +15,7 @@ if __name__ == "__main__":
             VALID_MAZE.load_rooms(MAZE_DATA)
             INVALID_ROOMS = VALID_MAZE.check_rooms()
             VALID_MAZE.load_cardinals(MAZE_DATA)
-            INVALID_CONNECTIONS = VALID_MAZE.check_cardinals or VALID_MAZE.check_connections()
+            INVALID_CONNECTIONS = VALID_MAZE.check_cardinals() or VALID_MAZE.check_connections()
         except (TypeError, AttributeError, yaml.parser.ParserError):
             print('\nPlease provide a file that contains a well formatted non-empty maze.\n')
         else:
