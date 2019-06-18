@@ -101,7 +101,6 @@ ENV/
 env.bak/
 venv.bak/
 .vs/
-.vs
 
 # Spyder project settings
 .spyderproject
@@ -129,5 +128,14 @@ dmypy.json
 
 # SonarScanner
 .scannerwork/
+
+# Team notes that we do not need for dork game
+cargraph.py
+HoursWorked.R
+MazePrototypePattern_withProtoMgr.py
+class_practice.py
+networkx_tutorial_notes.py
+simple_graph.py
+rachelrosebrooknotes/
 
 # End of https://www.gitignore.io/api/python

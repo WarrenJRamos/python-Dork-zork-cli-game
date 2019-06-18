@@ -1,0 +1,19 @@
+The following commands shall be run in your VS Code terminal.
+
+*** Creating Virtual Enviroment ***
+
+python -m venv <My_Virtual_Enviroment>
+
+*** Activating Virtual Enviroment ***
+
+My_Virtual_Enviroment\Scripts\activate
+
+
+*** Installing Packages into a Virtual Enviroment ***
+
+My_Virtual_Enviroment\pip install <package name>
+
+
+*** Installing NetworkX with its complete functionality ***
+
+My_Virtual_Enviroment\pip install networkx[all]

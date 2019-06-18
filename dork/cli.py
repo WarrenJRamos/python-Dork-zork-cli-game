@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from dork.commandManager import CommandManager
+
 """Basic CLI Dork.
 """
 
@@ -13,3 +15,8 @@ def main(*args):
         print("usage:", script_name, "[-h]")
     else:
         print(*args)
+
+    CommandManager.start()
+    while CommandManager.checkGameOver() == False:
+        CommandManager.readCommand()
+        CommandManager.executeCommand()
