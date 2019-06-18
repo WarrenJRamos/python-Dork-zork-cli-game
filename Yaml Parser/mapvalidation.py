@@ -10,7 +10,7 @@ class ValidMaze():
     actual_maze = []
     room_names = []
     room_cardinals = []
-    valid_cardinals = (['north', 'east', 'south', 'west'])
+    valid_cardinals = ['north', 'east', 'south', 'west']
     def load_rooms(self, maze):
         """
         Loading the room names
@@ -38,7 +38,7 @@ class ValidMaze():
         invalid_cardinal = False
 
         for i in range(len(ValidMaze.room_cardinals)):
-            if list(ValidMaze.room_cardinals[i].keys()) != ValidMaze.valid_cardinals:
+            if  list(ValidMaze.room_cardinals[i].keys()) != ValidMaze.valid_cardinals:
                 invalid_cardinal = True
                 break
             else:
