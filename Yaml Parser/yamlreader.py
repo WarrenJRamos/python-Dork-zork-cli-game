@@ -27,13 +27,13 @@ class YamlReader:
                 print(file_path + " is not a .yml or .yaml file.")
             else:
                 validated = False
-        return YamlReader.yaml_loader(self, file_path)
+            data = YamlReader.yaml_loader(self, file_path)
+        return data
 
     def valid_yml_file(self, file_path):
         """
         validating .yml or .ymal extension
         """
-
         file_extension = os.path.splitext(file_path)
         valid_extension = file_extension[1] == '.yml' or file_extension[1] == '.yaml'
         return valid_extension

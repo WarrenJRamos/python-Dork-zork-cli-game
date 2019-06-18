@@ -1,12 +1,7 @@
 """
 A class that validates a maze coming from a .yml/.yaml file
 """
-import yaml
-from yamlreader import YamlReader
 from mazeroom import MazeRoom
-import networkx as nx  
-import matplotlib.pyplot as plt 
-
 
 class ValidMaze():
     """
@@ -16,36 +11,6 @@ class ValidMaze():
     room_names = []
     room_cardinals = []
     valid_cardinals = (['north', 'east', 'south', 'west'])
-    def load_valid_maze(self):
-        """
-        Validating and loading the maze
-        """
-
-        reader = YamlReader()
-        validated = True
-        while validated:
-            try:
-                maze = reader.valid_path_file()
-                ValidMaze.load_rooms(self, maze)
-                invalid_rooms = ValidMaze.check_rooms(self)
-                ValidMaze.load_cardinals(self, maze)
-                invalid_connections = ValidMaze.check_connections(self)
-            except (TypeError, AttributeError, yaml.parser.ParserError):
-                print('\nPlease provide a file that contains a well formatted non-empty maze.\n')
-            else:
-                if invalid_rooms:
-                    print('\nThe maze can not have empty or null names for the rooms.\n')
-                elif invalid_connections:
-                    print('\nPlease assure that the uploaded maze fulfills these conditions:')
-                    print('\nThe maze must have the cardinal names for the rooms as follow:')
-                    print(ValidMaze.valid_cardinals)
-                    print('\nThe cardinals in the rooms must be pointing to unique directions.\n')
-                    print('\nThe cardinals in the rooms can not point to rooms out of the maze.\n')
-                    print('\nThere are not unreachable rooms in the maze.\n')
-                else:
-                    validated = False
-                    print('The maze provided by the user has been uploaded successfully.')
-       
     def load_rooms(self, maze):
         """
         Loading the room names
@@ -70,7 +35,6 @@ class ValidMaze():
         """
         Checking for valid cardinals in each room
         """
-
         invalid_cardinal = False
 
         for i in range(len(ValidMaze.room_cardinals)):
@@ -98,7 +62,7 @@ class ValidMaze():
             elif not set(adjacent_rooms).issubset(set(ValidMaze.room_names)):
                 invalid_direction = True
                 break
-            elif set(adjacent_rooms).issubset({None}):
+            elif unique_rooms.issubset({None}):
                 isolated_room = True
                 break
             else:
@@ -141,26 +105,3 @@ class ValidMaze():
             print('>West:')
             print(ValidMaze.actual_maze[i].west)
             print('\n \n')
-
-    def drawning_maze(self):
-           
-            G= nx.Graph()
-            G.add_node(ValidMaze.actual_maze[0])
-            G.add_node(ValidMaze.actual_maze[1])
-
-            pos = { ValidMaze.actual_maze[0]: (1,1),  
-                    ValidMaze.actual_maze[1] :(2,1)}
-
-            labels = {}
-            labels[ ValidMaze.actual_maze[0] ] = ValidMaze.actual_maze[0]
-
-            nx.draw_networkx_nodes(G, pos,  node_size= 1000, nodelist = [ ValidMaze.actual_maze[0], ValidMaze.actual_maze[1]]
-                                    , with_labels= True)
-            plt.show()
-
-if __name__ == "__main__":
-    MAZE_1 = ValidMaze()
-    MAZE_1.load_valid_maze()
-    MAZE_1.maze_assembly()
-    # MAZE_1.print_actual_maze()
-    MAZE_1.drawning_maze()
