@@ -1,11 +1,4 @@
-﻿"""Game responses to user commands"""
-# pylint: disable=R0904
-# The print methods that have "change this later" means that we are not
-# using them for the current sprint. The disable above allows us to go over
-# 20 public methods.
-
-class Room1Printing():
-    """ Print methods for all rooms """
+﻿class Room1Printing():
 
     def print_move(room, direction):
         """
