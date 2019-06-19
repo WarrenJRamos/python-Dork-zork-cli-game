@@ -2,7 +2,8 @@
 class Room1Printing():
     """This class prints messages"""
 
-    def print_move(self, room, direction):
+    @classmethod
+    def print_move(cls, room, direction):
         """
         Prints a statement to user after player moves a certain direction
         """
@@ -83,7 +84,8 @@ class Room1Printing():
             if direction == "west":
                 print("You are unable to go West.")
 
-    def print_look(self, room, direction):
+    @classmethod
+    def print_look(cls, room, direction):
         """
         Prints a statement after user looks a certain direction
         """
@@ -140,26 +142,29 @@ class Room1Printing():
                 print("There is an empty wall.")
             if direction == "west":
                 print("There is an empty wall.")
-
-    def print_score(self, score):
+    @classmethod
+    def print_score(cls, score):
         """
         Prints out the score
         """
         print("You have a score of " + str(score))
 
-    def print_diagnostic(self, health_score):
+    @classmethod
+    def print_diagnostic(cls, health_score):
         """
         Prints out the health data of the player
         """
         print("You have a health score of: " + str(health_score))
 
-    def print_get(self, item):
+    @classmethod
+    def print_get(cls, item):
         """
         Prints the item stored into player inventory
         """
         print("You put the " + item + " in your inventory")
 
-    def print_read(self, item):
+    @classmethod
+    def print_read(cls, item):
         """
         Prints the item that is being read.
         """
@@ -168,13 +173,15 @@ class Room1Printing():
         else:
             print(item + "was not found")
 
-    def print_drop_item(self):
+    @classmethod
+    def print_drop_item(cls):
         """
         Print the item being dropped
         """
         print("CHANGE THIS FOR FUTURE SPRINT")
 
-    def print_open_item(self, item):
+    @classmethod
+    def print_open_item(cls, item):
         """
         Print what happens after player open the item.
         """
@@ -183,13 +190,15 @@ class Room1Printing():
               "The bird is added to your inventory.")
         # Call the add_inventory() method here
 
-    def print_move_moveable(self):
+    @classmethod
+    def print_move_moveable(cls):
         """
         Prints what happens after the item is moved
         """
         print("CHANGE THIS LATER")
 
-    def print_attack(self, creature):
+    @classmethod
+    def print_attack(cls, creature):
         """
         Prints out what happens after the player attacks a creature
         """
@@ -202,7 +211,8 @@ class Room1Printing():
         else:
             print("You cannot attack " + creature)
 
-    def print_examine(self, item):
+    @classmethod
+    def print_examine(cls, item):
         """
         Print out what happens when the player examines an item
         """
@@ -216,7 +226,8 @@ class Room1Printing():
         else:
             print(item + " is unable to be examined")
 
-    def print_inventory(self, inventory):
+    @classmethod
+    def print_inventory(cls, inventory):
         """
         Print out the player's inventory
         """
@@ -224,7 +235,8 @@ class Room1Printing():
         for items in inventory:
             print(items + " ")
 
-    def print_eat_food(self, item):
+    @classmethod
+    def print_eat_food(cls, item):
         """
         Print out what happens after player eats item.
         """
@@ -236,7 +248,8 @@ class Room1Printing():
         else:
             print(item + "is not something you can eat.")
 
-    def print_feed_creature(self, food):
+    @classmethod
+    def print_feed_creature(cls, food):
         """
         Print what happens after player feeds the runner
         """
@@ -254,9 +267,9 @@ class Room1Printing():
         if food is None:
             print("There is nothing to feed the bird with.")
 
-    def print_give_item(self):
+    @classmethod
+    def print_give_item(cls):
         """
         Print what happens after player gives the item
         """
         print("CHANGE THIS LATER")
-        
