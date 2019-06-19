@@ -142,6 +142,8 @@ class Room1PrintingTestCase(unittest.TestCase):
         """Tests print_read"""
         assert Room1Printing.print_read("paper") == print(
             "I don't like this bird. Dispose of it for me. - Dean")
+        assert Room1Printing.print_read("notpaper") == print(
+            "notpaper was not found")
 
     def test_print_drop_item(self):
         """Tests print_drop_item"""
@@ -166,11 +168,20 @@ class Room1PrintingTestCase(unittest.TestCase):
             "You run up to the dean and start punching him. He is in " +
             "lots of pain but was able to call security to take " +
             "you away. GAME OVER.")
+        assert Room1Printing.print_attack("dean") == print(
+            "You cannot attack bob")
 
     def test_print_examine(self):
         """Tests print_examine"""
         assert Room1Printing.print_examine("paper") == print(
             "I don't "+ "like this bird. Dispose of it for me. - Dean")
+        assert Room1Printing.print_examine("roadrunner") == print(
+            "The roadrunner is in bad condition. It looks starving " +
+            "and nervous.")
+        assert Room1Printing.print_examine("cage") == print(
+            "The cage is tight, dirty, and locked.")
+        assert Room1Printing.print_examine("whatever") == print(
+            "whatever is unable to be examined")                                    
 
     def test_print_inventory(self):
         """Tests print_inventory"""
@@ -186,6 +197,8 @@ class Room1PrintingTestCase(unittest.TestCase):
         assert Room1Printing.print_eat_food("donut") == print(
             "The donut is yummy. Unfortunately, the player dies " +
             "as THE DONUT IS POISONOUS!!! GAME OVER")
+        assert Room1Printing.print_eat_food("fruit") == print(            
+            "fruit is not something you can eat.")
 
     def test_print_feed_creature(self):
         """Tests print_feed_creature"""
@@ -194,6 +207,12 @@ class Room1PrintingTestCase(unittest.TestCase):
             "the donut into the cage. The roadrunner finished the " +
             "donut AND DIES!!! You figure out the donut is " +
             "poisonous! GAME OVER!")
+        assert Room1Printing.print_feed_creature("bird food") == print(
+            "Through one of the tiny openings in the cage, you " +
+            "drop some bird food into the cage. The roadrunner " +
+            "eats the food and seems energized.")
+        assert Room1Printing.print_feed_creature(None) == print(
+            "There is nothing to feed the bird with.")
 
     def test_print_give_item(self):
         """Tests print_give_item"""
