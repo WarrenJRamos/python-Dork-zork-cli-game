@@ -206,8 +206,9 @@ class Room1Printing():
             print("You run up to the dean and start punching him. He is in " +
                   "lots of pain but was able to call security to take " +
                   "you away. GAME OVER.")
-            from dork.commandManager import CommandManager
-            CommandManager.setGameOver(True)
+            from dork.command_manager import CommandManager
+            cm = CommandManager()
+            cm.set_game_over(True)
         else:
             print("You cannot attack " + creature)
 
@@ -243,8 +244,9 @@ class Room1Printing():
         if item == "donut":
             print("The donut is yummy. Unfortunately, the player dies " +
                   "as THE DONUT IS POISONOUS!!! GAME OVER")
-            from dork.commandManager import CommandManager
-            CommandManager.setGameOver(True)
+            from dork.command_manager import CommandManager
+            cm = CommandManager()
+            cm.set_game_over(True)
         else:
             print(item + "is not something you can eat.")
 
@@ -258,8 +260,9 @@ class Room1Printing():
                   "the donut into the cage. The roadrunner finished the " +
                   "donut AND DIES!!! You figure out the donut is " +
                   "poisonous! GAME OVER!")
-            from dork.commandManager import CommandManager
-            CommandManager.setGameOver(True)
+            from dork.command_manager import CommandManager
+            cm = CommandManager()
+            cm.set_game_over(True)
         if food == "bird food":
             print("Through one of the tiny openings in the cage, you " +
                   "drop some bird food into the cage. The roadrunner " +

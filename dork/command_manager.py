@@ -9,7 +9,6 @@ class CommandManager:
     GAME_OVER = False
    # HEALTH = 5
     PLAYER_INVENTORY = [""]
-    
 
     def start(self):
         """
@@ -23,7 +22,7 @@ class CommandManager:
         GAME_OVER = False
         PLAYER_INVENTORY = [""]
 
-    def check_gameover(self):
+    def check_game_over(self):
         """
         Check if the game is over
         """
@@ -94,10 +93,10 @@ class CommandManager:
         elif INPUT_LINE[0:4] in look:
             INPUT_HELPER = INPUT_LINE[5:len(INPUT_LINE)]
             INPUT_LINE = "look"
-        elif inputLine[0:3] in eat:
+        elif INPUT_LINE[0:3] in eat:
             INPUT_HELPER = INPUT_LINE[4:len(INPUT_LINE)]
             INPUT_LINE = "eat"
-        elif inputLine[0:4] in feed:
+        elif INPUT_LINE[0:4] in feed:
             INPUT_HELPER = INPUT_LINE[5:len(INPUT_LINE)]
             INPUT_LINE = "feed"
         elif INPUT_LINE in inventory:
