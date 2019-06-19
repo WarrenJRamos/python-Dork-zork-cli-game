@@ -62,10 +62,10 @@ class CommandManager:
             self.INPUT_LINE = "go east"
         elif self.INPUT_LINE in west:
             self.INPUT_LINE = "go west"
-        elif (self.INPUT_LINE[0:2] in move or 
+        elif (self.INPUT_LINE[0:2] in move or
               self.INPUT_LINE[0:3] in move) and (len(self.INPUT_LINE) < 6):
             self.INPUT_LINE = "go"
-        elif (self.INPUT_LINE[0:4] in move or 
+        elif (self.INPUT_LINE[0:4] in move or
               self.INPUT_LINE[0:5] in move) and (len(self.INPUT_LINE) < 6):
             self.INPUT_LINE = "go"
         elif self.INPUT_LINE[0:3] in put:
