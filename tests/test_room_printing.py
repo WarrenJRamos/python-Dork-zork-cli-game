@@ -79,6 +79,49 @@ class Room1PrintingTestCase(unittest.TestCase):
         """Tests print_look"""
         assert Room1Printing.print_look("room 1", "north") == print(
             'There is a door with a sign that says DANGER.')
+        assert Room1Printing.print_look("room 1", "south") == print(
+            "There is bag of bird food with all sorts of " +
+            "insects that roadrunners love to eat.")
+        assert Room1Printing.print_look("room 1", "east") == print(
+            "To the East, there is a sign that says Lounge.")
+        assert Room1Printing.print_look("room 1", "west") == print(
+            "To the West, there is a sign that says " +
+            "Roadrunner's Nest")
+        assert Room1Printing.print_look("room 2", "north") == print(
+            "There is a sign that says DANGER!!")
+        assert Room1Printing.print_look("room 2", "south") == print(
+            "There is a 1000 ft cliff with spikes.")
+        assert Room1Printing.print_look("room 2", "east") == print(
+            "There is an empty wall.")
+        assert Room1Printing.print_look("room 2", "west") == print(
+            "There is a sign that says Student Success " +
+            "Building.")
+        assert Room1Printing.print_look("room 3", "north") == print(
+            "There is a sign that says DANGER!!")
+        assert Room1Printing.print_look("room 3", "south") == print(
+            "There is an empty wall.")
+        assert Room1Printing.print_look("room 3", "east") == print(
+            "There is a sign that says Student Success Building.")
+        assert Room1Printing.print_look("room 3", "west") == print(
+            "There is an empty wall.")
+        assert Room1Printing.print_look("room 4", "north") == print(
+            "There is blue door that is being guarded by the dean.")
+        assert Room1Printing.print_look("room 4", "south") == print(
+            "There is a sign that says Student Success Building.")
+        assert Room1Printing.print_look("room 4", "east") == print(
+            "To the East, there is a sign that says Lounge.")
+        assert Room1Printing.print_look("room 4", "west") == print(
+            "To the West, there is a sign that says " +
+            "Roadrunner’s Nest.")
+        assert Room1Printing.print_look("room 5", "north") == print(
+            "There is an empty wall.")
+        assert Room1Printing.print_look("room 5", "south") == print(
+            "There is a blue door")
+        assert Room1Printing.print_look("room 5", "east") == print(
+            "There is an empty wall.")
+        assert Room1Printing.print_look("room 5", "west") == print(
+            "There is an empty wall.")
+        self.assertRaises(AssertionError, Room1Printing.print_look(None, None))
 
     def test_print_score(self):
         """Tests print_score"""
