@@ -1,7 +1,6 @@
 """Test for room_printing"""
 import unittest
 from dork.room_printing import Room1Printing
-
 class Room1PrintingTestCase(unittest.TestCase):
     """Test for room_printing"""
 
@@ -73,7 +72,6 @@ class Room1PrintingTestCase(unittest.TestCase):
             "You are unable to go East.")
         assert Room1Printing.print_move("room 5", "west") == print(
             "You are unable to go West.")
-        self.assertRaises(AssertionError, Room1Printing.print_move(None, None))
 
     def test_print_look(self):
         """Tests print_look"""
@@ -121,7 +119,6 @@ class Room1PrintingTestCase(unittest.TestCase):
             "There is an empty wall.")
         assert Room1Printing.print_look("room 5", "west") == print(
             "There is an empty wall.")
-        self.assertRaises(AssertionError, Room1Printing.print_look(None, None))
 
     def test_print_score(self):
         """Tests print_score"""
@@ -174,14 +171,14 @@ class Room1PrintingTestCase(unittest.TestCase):
     def test_print_examine(self):
         """Tests print_examine"""
         assert Room1Printing.print_examine("paper") == print(
-            "I don't "+ "like this bird. Dispose of it for me. - Dean")
+            "I don't " + "like this bird. Dispose of it for me. - Dean")
         assert Room1Printing.print_examine("roadrunner") == print(
             "The roadrunner is in bad condition. It looks starving " +
             "and nervous.")
         assert Room1Printing.print_examine("cage") == print(
             "The cage is tight, dirty, and locked.")
         assert Room1Printing.print_examine("whatever") == print(
-            "whatever is unable to be examined")                                    
+            "whatever is unable to be examined")
 
     def test_print_inventory(self):
         """Tests print_inventory"""
@@ -197,7 +194,7 @@ class Room1PrintingTestCase(unittest.TestCase):
         assert Room1Printing.print_eat_food("donut") == print(
             "The donut is yummy. Unfortunately, the player dies " +
             "as THE DONUT IS POISONOUS!!! GAME OVER")
-        assert Room1Printing.print_eat_food("fruit") == print(            
+        assert Room1Printing.print_eat_food("fruit") == print(
             "fruit is not something you can eat.")
 
     def test_print_feed_creature(self):
