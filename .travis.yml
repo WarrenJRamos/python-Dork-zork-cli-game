@@ -5,9 +5,9 @@ python:
 
 addons:
   sonarcloud:
-    organization: "$SONAR_ORGANIZATION"
+    organization: "warrenjramos-github"
     token:
-      secure: "$SONAR_TOKEN"
+      secure: "dd96a87284557c80a49d0eaab00121679fbe48ad"
 
 before_install:
   - pip install -U pip
