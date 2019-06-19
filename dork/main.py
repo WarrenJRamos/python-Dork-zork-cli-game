@@ -2,8 +2,8 @@
 Main Method
 """
 import yaml
-from mapvalidation import ValidMaze
-from yamlreader import YamlReader
+from dork.mapvalidation import ValidMaze
+from dork.yamlreader import YamlReader
 
 if __name__ == "__main__":
     VALID_MAZE = ValidMaze()
