@@ -1,4 +1,6 @@
-﻿class Room1Printing():
+﻿"""This class prints message to user"""
+class Room1Printing():
+    """This class prints messages"""
 
     def print_move(self, room, direction):
         """
