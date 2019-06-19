@@ -1,6 +1,8 @@
 """Test for room_printing"""
 import unittest
 from dork.room_printing import Room1Printing
+from dork.command_manager import CommandManager
+
 class Room1PrintingTestCase(unittest.TestCase):
     """Test for room_printing"""
 
@@ -161,11 +163,14 @@ class Room1PrintingTestCase(unittest.TestCase):
 
     def test_print_attack(self):
         """Tests print_attack"""
+        command_manage = CommandManager()
         assert Room1Printing.print_attack("dean") == print(
             "You run up to the dean and start punching him. He is in " +
             "lots of pain but was able to call security to take " +
             "you away. GAME OVER.")
-        assert Room1Printing.print_attack("dean") == print(
+        if Room1Printing.print_attack("dean"):
+            assert command_manage.set_game_over(True)
+        assert Room1Printing.print_attack("bob") == print(
             "You cannot attack bob")
 
     def test_print_examine(self):
@@ -185,7 +190,7 @@ class Room1PrintingTestCase(unittest.TestCase):
         inventory_items = []
         inventory = "You currently have:"
         for items in inventory:
-            inventory += (items + " ")
+            inventory += (str(items) + " ")
         assert Room1Printing.print_inventory(inventory_items) == print(
             inventory)
 
