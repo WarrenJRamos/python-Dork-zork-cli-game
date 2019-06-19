@@ -22,47 +22,46 @@ class Room1Printing():
         if room == "room 2":
             if direction == "north":
                 print("You are in the dean’s office. The dean is irritated " +
-                      "that you are \nin the room. You have 1 minute to make " +
-                      "him happy; otherwise, campus \nsecurity will arrive " +
-                      "and take you away.")
+                      "that you are \nin the room. You have 1 minute to " +
+                      "make him happy; otherwise, campus \nsecurity will " +
+                      "arrive and take you away.")
             if direction == "south":
                 print("You fall to your death.")
             if direction == "east":
                 print("You are unable to go East.")
             if direction == "west":
                 print("You are inside the Student Success Building. There " +
-                      "is a locked cage \nwith a roadrunner inside. It looks " +
-                      "starving and nervous. \nThere is a piece of paper " +
-                      "next to the cage.")
+                      "is a locked cage \nwith a roadrunner inside. " +
+                      "It looks starving and nervous. \nThere is a " +
+                      "piece of paper next to the cage.")
 
         if room == "room 3":
             if direction == "north":
                 print("You are in the dean’s office. The dean is irritated" +
-                      " that you are in \nthe room. You have 1 minute to make " +
-                      "him happy; otherwise, \ncampus security will arrive " +
-                      "and take you away.")
+                      " that you are in \nthe room. You have 1 minute to " +
+                      "make him happy; otherwise, \ncampus security " +
+                      "will arrive and take you away.")
             if direction == "south":
                 print("You are unable to go South.")
             if direction == "east":
                 print("You are inside the Student Success Building. There " +
-                      "is a locked cage \nwith a roadrunner inside. It looks " +
-                      "starving and nervous. \nThere is a piece of paper " +
-                      "next to the cage.")
+                      "is a locked cage \nwith a roadrunner inside. " +
+                      "It looks starving and nervous. \nThere is a " +
+                      "piece of paper next to the cage.")
             if direction == "west":
                 print("You are unable to go West.")
 
         if room == "room 4":
             if direction == "north":
-                # Ask teammates about whether or not to include an extra parameter for this method
-                print("The blue door is unlocked, and you enter a room with " +
-                      "a gold key.")
-                print("The dean is blocking the door and does not let you " +
-                      "through. You cannot enter this room.")
+                print("The blue door is unlocked, and you enter a room " +
+                      "with a gold key.")
+                print("The dean is blocking the door and does not " +
+                      "let you through. You cannot enter this room.")
             if direction == "south":
-                print("You are inside the Student Success Building. There " +
-                      "is a locked cage \nwith a roadrunner inside. It looks " +
-                      "starving and nervous. \nThere is a piece of paper " +
-                      "next to the cage.")
+                print("You are inside the Student Success Building. " +
+                      "There is a locked cage \nwith a roadrunner inside. " +
+                      "It looks starving and nervous. \nThere is a " +
+                      "piece of paper next to the cage.")
             if direction == "east":
                 print("There is a table in the room with a donut on top.")
             if direction == "west":
@@ -76,9 +75,9 @@ class Room1Printing():
                 print("You are unable to go North.")
             if direction == "south":
                 print("You are in the dean’s office. The dean is irritated" +
-                      " that you are in \nthe room. You have 1 minute to make " +
-                      "him happy; otherwise, \ncampus security will arrive " +
-                      "and take you away.")
+                      " that you are in \nthe room. You have 1 minute to " +
+                      "make him happy; otherwise, \ncampus security " +
+                      "will arrive and take you away.")
             if direction == "east":
                 print("You are unable to go East.")
             if direction == "west":
@@ -92,12 +91,13 @@ class Room1Printing():
             if direction == "north":
                 print("There is a door with a sign that says DANGER.")
             if direction == "south":
-                print("There is bag of bird food with all sorts of insects " +
-                      "that roadrunners love to eat.")
+                print("There is bag of bird food with all sorts of " +
+                      "insects that roadrunners love to eat.")
             if direction == "east":
                 print("To the East, there is a sign that says Lounge.")
             if direction == "west":
-                print("To the West, there is a sign that says Roadrunner's Nest")
+                print("To the West, there is a sign that says " +
+                      "Roadrunner's Nest")
 
         if room == "room 2":
             if direction == "north":
@@ -107,7 +107,8 @@ class Room1Printing():
             if direction == "east":
                 print("There is an empty wall.")
             if direction == "west":
-                print("There is a sign that says Student Success Building.")
+                print("There is a sign that says Student Success " +
+                      "Building.")
 
         if room == "room 3":
             if direction == "north":
@@ -127,7 +128,8 @@ class Room1Printing():
             if direction == "east":
                 print("To the East, there is a sign that says Lounge.")
             if direction == "west":
-                print("To the West, there is a sign that says Roadrunner’s Nest.")
+                print("To the West, there is a sign that says " +
+                      "Roadrunner’s Nest.")
 
         if room == "room 5":
             if direction == "north":
@@ -193,7 +195,8 @@ class Room1Printing():
         """
         if creature == "dean":
             print("You run up to the dean and start punching him. He is in " +
-                  "lots of pain but was able to call security to take you away. GAME OVER.")
+                  "lots of pain but was able to call security to take " +
+                  "you away. GAME OVER.")
             from dork.commandManager import CommandManager
             CommandManager.setGameOver(True)
         else:
@@ -206,7 +209,8 @@ class Room1Printing():
         if item == "paper":
             print("I don't "+ "like this bird. Dispose of it for me. - Dean")
         elif item == "roadrunner":
-            print("The roadrunner is in bad condition. It looks starving and nervous.")
+            print("The roadrunner is in bad condition. It looks starving " +
+                  "and nervous.")
         elif item == "cage":
             print("The cage is tight, dirty, and locked.")
         else:
@@ -238,14 +242,15 @@ class Room1Printing():
         """
         if food == "donut":
             print("Through one of the tiny openings in the cage, you drop " +
-                  "the donut into the cage. The roadrunner finished the donut " +
-                  "AND DIES!!! You figure out the donut is poisonous! GAME OVER!")
+                  "the donut into the cage. The roadrunner finished the " +
+                  "donut AND DIES!!! You figure out the donut is " +
+                  "poisonous! GAME OVER!")
             from dork.commandManager import CommandManager
             CommandManager.setGameOver(True)
         if food == "bird food":
-            print("Through one of the tiny openings in the cage, you drop some " +
-                  "bird food into the cage. The roadrunner eats the food and seems " +
-                  "energized.")
+            print("Through one of the tiny openings in the cage, you " +
+                  "drop some bird food into the cage. The roadrunner " +
+                  "eats the food and seems energized.")
         if food is None:
             print("There is nothing to feed the bird with.")
 
