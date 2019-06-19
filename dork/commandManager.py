@@ -1,6 +1,5 @@
 #Command keyword arrays
 from dork.room_printing import Room1Printing
-import sys
 class CommandManager:
 
     inputLine = "" #Main Command
@@ -131,6 +130,3 @@ class CommandManager:
             Room1Printing.print_inventory(playerInventory)
         else:
             print("Invalid Command!")
-            
-    def enterRoom():
-        return
