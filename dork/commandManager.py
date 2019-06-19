@@ -1,6 +1,8 @@
-#Command keyword arrays
+"""This class acts as the controller for the game"""
 from dork.room_printing import Room1Printing
+
 class CommandManager:
+    """cli controller"""
 
     inputLine = "" #Main Command
     inputHelper = "" #Helper Command (usually an object)
@@ -9,6 +11,9 @@ class CommandManager:
     playerInventory = [""]
 
     def start(self):
+        """
+        Initialize Starting Variables
+        """
         print("Welcome to Dork!")
         global gameOver
         global inputLine
@@ -18,6 +23,9 @@ class CommandManager:
         playerInventory = [""]
 
     def checkGameOver(self):
+        """
+        Check if the game is over
+        """
         global gameOver
         if gameOver == True:
             return True
@@ -25,6 +33,9 @@ class CommandManager:
             return False
 
     def setGameOver(self, bool):
+        """
+        Method for conditional termination of the game
+        """
         global gameOver
         if bool == True:
             gameOver = True
@@ -32,6 +43,9 @@ class CommandManager:
             gameOver = False
 
     def readCommand(self):
+        """
+        Reads command from the console, translates and returns the command
+        """
         global inputLine
         global inputHelper
         north = ['up', 'north', 'n'] #north
@@ -87,6 +101,9 @@ class CommandManager:
             inputLine = "inventory"
 
     def executeCommand(self):
+        """
+        Takes the command from previous method if valid and returns the result
+        """
         global gameOver
         global inputLine
         global inputHelper
