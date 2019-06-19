@@ -1,7 +1,7 @@
 """
 A class that validates a maze coming from a .yml/.yaml file
 """
-from mazeroom import MazeRoom
+from dork.mazeroom import MazeRoom
 
 class ValidMaze():
     """
