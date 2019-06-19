@@ -1,6 +1,6 @@
 ﻿class Room1Printing():
 
-    def print_move(room, direction):
+    def print_move(self, room, direction):
         """
         Prints a statement to user after player moves a certain direction
         """
@@ -82,7 +82,7 @@
             if direction == "west":
                 print("You are unable to go West.")
 
-    def print_look(room, direction):
+    def print_look(self, room, direction):
         """
         Prints a statement after user looks a certain direction
         """
@@ -137,25 +137,25 @@
             if direction == "west":
                 print("There is an empty wall.")
 
-    def print_score(score):
+    def print_score(self, score):
         """
         Prints out the score
         """
         print("You have a score of " + str(score))
 
-    def print_diagnostic(health_score):
+    def print_diagnostic(self, health_score):
         """
         Prints out the health data of the player
         """
         print("You have a health score of: " + str(health_score))
 
-    def print_get(item):
+    def print_get(self, item):
         """
         Prints the item stored into player inventory
         """
         print("You put the " + item + " in your inventory")
 
-    def print_read(item):
+    def print_read(self, item):
         """
         Prints the item that is being read.
         """
@@ -170,7 +170,7 @@
         """
         print("CHANGE THIS FOR FUTURE SPRINT")
 
-    def print_open_item(item):
+    def print_open_item(self, item):
         """
         Print what happens after player open the item.
         """
@@ -185,7 +185,7 @@
         """
         print("CHANGE THIS LATER")
 
-    def print_attack(creature):
+    def print_attack(self, creature):
         """
         Prints out what happens after the player attacks a creature
         """
@@ -197,7 +197,7 @@
         else:
             print("You cannot attack " + creature)
 
-    def print_examine(item):
+    def print_examine(self, item):
         """
         Print out what happens when the player examines an item
         """
@@ -210,7 +210,7 @@
         else:
             print(item + " is unable to be examined")
 
-    def print_inventory(inventory):
+    def print_inventory(self, inventory):
         """
         Print out the player's inventory
         """
@@ -218,7 +218,7 @@
         for items in inventory:
             print(items + " ")
 
-    def print_eat_food(item):
+    def print_eat_food(self, item):
         """
         Print out what happens after player eats item.
         """
@@ -230,7 +230,7 @@
         else:
             print(item + "is not something you can eat.")
 
-    def print_feed_creature(food):
+    def print_feed_creature(self, food):
         """
         Print what happens after player feeds the runner
         """

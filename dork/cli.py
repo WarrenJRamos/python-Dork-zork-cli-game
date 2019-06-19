@@ -20,3 +20,4 @@ def main(*args):
     while CommandManager.checkGameOver() == False:
         CommandManager.readCommand()
         CommandManager.executeCommand()
+        
