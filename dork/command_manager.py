@@ -52,7 +52,7 @@ class CommandManager:
         south = ['down', 'south', 's'] #south
         east = ['east', 'e', 'right'] #est
         west = ['west', 'w', 'left'] #west
-        go = ['move', 'walk', 'run', 'skip', 'hop', 'crawl', 'scoot', 'wander', 'meander', 'go'] #go
+        move = ['move', 'walk', 'run', 'skip', 'hop', 'crawl', 'scoot', 'wander', 'meander', 'go'] #go
 
         look = ['look', 'see', 'peer', 'view'] #examine
         get = ['grab', 'get', 'take'] #get
@@ -74,9 +74,9 @@ class CommandManager:
             INPUT_LINE = "go east"
         elif INPUT_LINE in west:
             INPUT_LINE = "go west"
-        elif (INPUT_LINE[0:2] in go or INPUT_LINE[0:3] in go) and (len(INPUT_LINE) < 6):
+        elif (INPUT_LINE[0:2] in move or INPUT_LINE[0:3] in move) and (len(INPUT_LINE) < 6):
             INPUT_LINE = "go"
-        elif (INPUT_LINE[0:4] in go or INPUT_LINE[0:5] in go) and (len(INPUT_LINE) < 6):
+        elif (INPUT_LINE[0:4] in move or INPUT_LINE[0:5] in move) and (len(INPUT_LINE) < 6):
             INPUT_LINE = "go"
         elif INPUT_LINE[0:3] in put:
             INPUT_HELPER = INPUT_LINE[4:len(INPUT_LINE)]
