@@ -1,4 +1,5 @@
 ﻿"""This class prints message to user"""
+
 class Room1Printing():
     """This class prints messages"""
 
@@ -234,7 +235,7 @@ class Room1Printing():
         """
         print("You currently have:")
         for items in inventory:
-            print(items + " ")
+            print(str(items) + " ")
 
     @classmethod
     def print_eat_food(cls, item):
