@@ -1,145 +1,130 @@
 """This class acts as the controller for the game"""
 from dork.room_printing import Room1Printing
-
-INPUT_LINE = "" #Main Command
-INPUT_HELPER = "" #Helper Command (usually an object)
-GAME_OVER = False
-   # HEALTH = 5
-PLAYER_INVENTORY = [""]
+#INPUT_LINE = ""
+#INPUT_HELPER = ""
+#GAME_OVER = False
+#PLAYER_INVENTORY = [""]
 class CommandManager:
     """cli controller"""
-    INPUT_LINE = "" #Main Command
-    INPUT_HELPER = "" #Helper Command (usually an object)
-    GAME_OVER = False
-   # HEALTH = 5
-    PLAYER_INVENTORY = [""]
+
+    def __init__(self):
+        self.GAME_OVER = False
+        self.INPUT_LINE = ""
+        self.INPUT_HELPER = ""
+        self.PLAYER_INVENTORY = [""]
 
     def start(self):
         """
         Initialize Starting Variables
         """
         print("Welcome to Dork!")
-        #global GAME_OVER
-        #global INPUT_LINE
-        #global HEALTH
-        #global PLAYER_INVENTORY
-        #GAME_OVER = False
-        #PLAYER_INVENTORY = [""]
 
     def check_game_over(self):
         """
         Check if the game is over
         """
-        #global GAME_OVER
-        return GAME_OVER
+        return self.GAME_OVER
 
     def set_game_over(self, cond):
         """
         Method for conditional termination of the game
         """
-        #global GAME_OVER
         if cond is True:
-            GAME_OVER = True
+            self.GAME_OVER = True
         if cond is not True:
-            GAME_OVER = False
+            self.GAME_OVER = False
 
     def read_command(self):
         """
         Reads command from the console, translates and returns the command
         """
-        global INPUT_LINE
-        global INPUT_HELPER
-        north = ['up', 'north', 'n'] #north
-        south = ['down', 'south', 's'] #south
-        east = ['east', 'e', 'right'] #est
-        west = ['west', 'w', 'left'] #west
-        move = ['move', 'walk', 'run', 'skip', 'hop', 'crawl', 'scoot', 'wander', 'go'] #go
 
-        look = ['look', 'see', 'peer', 'view'] #examine
-        get = ['grab', 'get', 'take'] #get
-        put = ['put', 'set', 'lay'] #put
+        north = ['up', 'north', 'n']
+        south = ['down', 'south', 's']
+        east = ['east', 'e', 'right']
+        west = ['west', 'w', 'left']
+        move = ['move', 'walk', 'run', 'skip', 'hop', 'crawl', 'scoot', 'wander', 'go']
 
-        eat = ['eat'] # Player eats
-        feed = ['feed'] # -> Gives food
+        look = ['look', 'see', 'peer', 'view']
+        get = ['grab', 'get', 'take']
+        put = ['put', 'set', 'lay']
+
+        eat = ['eat']
+        feed = ['feed']
         inventory = ['inventory']
 
-
-
-        #Shortcut checks & Dictionary breakdown
-        INPUT_LINE = input("")
-        if INPUT_LINE in north:
-            INPUT_LINE = "go north"
-        elif INPUT_LINE in south:
-            INPUT_LINE = "go south"
-        elif INPUT_LINE in east:
-            INPUT_LINE = "go east"
-        elif INPUT_LINE in west:
-            INPUT_LINE = "go west"
-        elif (INPUT_LINE[0:2] in move or INPUT_LINE[0:3] in move) and (len(INPUT_LINE) < 6):
-            INPUT_LINE = "go"
-        elif (INPUT_LINE[0:4] in move or INPUT_LINE[0:5] in move) and (len(INPUT_LINE) < 6):
-            INPUT_LINE = "go"
-        elif INPUT_LINE[0:3] in put:
-            INPUT_HELPER = INPUT_LINE[4:len(INPUT_LINE)]
-            INPUT_LINE = "put"
-        elif INPUT_LINE[0:3] in get:
-            INPUT_HELPER = INPUT_LINE[4:len(INPUT_LINE)]
-            INPUT_LINE = "get"
-        elif INPUT_LINE[0:4] in get:
-            INPUT_HELPER = INPUT_LINE[5:len(INPUT_LINE)]
-            INPUT_LINE = "get"
-        elif INPUT_LINE[0:3] in look:
-            INPUT_HELPER = INPUT_LINE[4:len(INPUT_LINE)]
-            INPUT_LINE = "look"
-        elif INPUT_LINE[0:4] in look:
-            INPUT_HELPER = INPUT_LINE[5:len(INPUT_LINE)]
-            INPUT_LINE = "look"
-        elif INPUT_LINE[0:3] in eat:
-            INPUT_HELPER = INPUT_LINE[4:len(INPUT_LINE)]
-            INPUT_LINE = "eat"
-        elif INPUT_LINE[0:4] in feed:
-            INPUT_HELPER = INPUT_LINE[5:len(INPUT_LINE)]
-            INPUT_LINE = "feed"
-        elif INPUT_LINE in inventory:
-            INPUT_LINE = "inventory"
+        self.INPUT_LINE = input("")
+        if self.INPUT_LINE in north:
+            self.INPUT_LINE = "go north"
+        elif self.INPUT_LINE in south:
+            self.INPUT_LINE = "go south"
+        elif self.INPUT_LINE in east:
+            self.INPUT_LINE = "go east"
+        elif self.INPUT_LINE in west:
+            self.INPUT_LINE = "go west"
+        elif (self.INPUT_LINE[0:2] in move or self.INPUT_LINE[0:3] in move) and (len(self.INPUT_LINE) < 6):
+            self.INPUT_LINE = "go"
+        elif (self.INPUT_LINE[0:4] in move or self.INPUT_LINE[0:5] in move) and (len(self.INPUT_LINE) < 6):
+            self.INPUT_LINE = "go"
+        elif self.INPUT_LINE[0:3] in put:
+            self.INPUT_HELPER = self.INPUT_LINE[4:len(self.INPUT_LINE)]
+            self.INPUT_LINE = "put"
+        elif self.INPUT_LINE[0:3] in get:
+            self.INPUT_HELPER = self.INPUT_LINE[4:len(self.INPUT_LINE)]
+            self.INPUT_LINE = "get"
+        elif self.INPUT_LINE[0:4] in get:
+            self.INPUT_HELPER = self.INPUT_LINE[5:len(self.INPUT_LINE)]
+            self.INPUT_LINE = "get"
+        elif self.INPUT_LINE[0:3] in look:
+            self.INPUT_HELPER = self.INPUT_LINE[4:len(self.INPUT_LINE)]
+            self.INPUT_LINE = "look"
+        elif self.INPUT_LINE[0:4] in look:
+            self.INPUT_HELPER = self.INPUT_LINE[5:len(self.INPUT_LINE)]
+            self.INPUT_LINE = "look"
+        elif self.INPUT_LINE[0:3] in eat:
+            self.INPUT_HELPER = self.INPUT_LINE[4:len(self.INPUT_LINE)]
+            self.INPUT_LINE = "eat"
+        elif self.INPUT_LINE[0:4] in feed:
+            self.INPUT_HELPER = self.INPUT_LINE[5:len(self.INPUT_LINE)]
+            self.INPUT_LINE = "feed"
+        elif self.INPUT_LINE in inventory:
+            self.INPUT_LINE = "inventory"
 
     def execute_command(self):
         """
         Takes the command from previous method if valid and returns the result
         """
-       # global GAME_OVER
-        #global INPUT_LINE
-        #global INPUT_HELPER
-        #global PLAYER_INVENTORY
         room_one_prints = Room1Printing()
         #print(inputLine[0:2] + "   " + inputLine[3:8]) #Debugging
-        if INPUT_LINE == "exit":
+        if self.INPUT_LINE == "exit":
             print("Bye!")
             self.set_game_over(True)
-        elif INPUT_LINE[0:8] == "go north":
+        elif self.INPUT_LINE[0:8] == "go north":
             room_one_prints.print_move("room 1", "north")
-        elif INPUT_LINE[0:8] == "go south":
+        elif self.INPUT_LINE[0:8] == "go south":
             room_one_prints.print_move("room 1", "south")
-        elif INPUT_LINE[0:7] == "go east":
+        elif self.INPUT_LINE[0:7] == "go east":
             room_one_prints.print_move("room 1", "east")
-        elif INPUT_LINE[0:7] == "go west":
+        elif self.INPUT_LINE[0:7] == "go west":
             room_one_prints.print_move("room 1", "west")
-        elif INPUT_LINE == "go":
+        elif self.INPUT_LINE == "go":
             print("Go where?")
-        elif INPUT_LINE == "look":
-            room_one_prints.print_look("room 1", INPUT_HELPER)
-            if INPUT_HELPER != "north" and INPUT_HELPER != "south" and INPUT_HELPER != "west" and INPUT_HELPER != "east":
-                room_one_prints.print_examine(INPUT_HELPER)
-        elif INPUT_LINE == "get":
-            room_one_prints.print_get(INPUT_HELPER)
-            PLAYER_INVENTORY.append(INPUT_HELPER)
-        elif INPUT_LINE == "put":
+        elif self.INPUT_LINE == "look":
+            room_one_prints.print_look("room 1", self.INPUT_HELPER)
+            direction = ['north', 'south', 'east', 'west']
+            if self.INPUT_HELPER not in direction:
+                room_one_prints.print_examine(self.INPUT_HELPER)
+        elif self.INPUT_LINE == "get":
+            room_one_prints.print_get(self.INPUT_HELPER)
+            self.PLAYER_INVENTORY.append(self.INPUT_HELPER)
+        elif self.INPUT_LINE == "put":
             print("Put not ready")
-        elif INPUT_LINE == "eat":
-            room_one_prints.print_eat_food(INPUT_HELPER)
-        elif INPUT_LINE == "feed":
-            room_one_prints.print_feed_creature(INPUT_HELPER)
-        elif INPUT_LINE == "inventory":
-            room_one_prints.print_inventory(PLAYER_INVENTORY)
+        elif self.INPUT_LINE == "eat":
+            room_one_prints.print_eat_food(self.INPUT_HELPER)
+        elif self.INPUT_LINE == "feed":
+            room_one_prints.print_feed_creature(self.INPUT_HELPER)
+        elif self.INPUT_LINE == "inventory":
+            room_one_prints.print_inventory(self.PLAYER_INVENTORY)
+            print("Inventory:")
         else:
             print("Invalid Command!")
