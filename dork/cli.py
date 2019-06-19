@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from dork.commandManager import CommandManager
+from dork.command_manager import CommandManager
 
 """Basic CLI Dork.
 """
@@ -18,6 +18,6 @@ def main(*args):
 
     cm = CommandManager()
     cm.start()
-    while cm.checkGameOver() == False:
-        cm.readCommand()
-        cm.executeCommand()
+    while cm.check_gameover() == False:
+        cm.read_command()
+        cm.execute_command()
