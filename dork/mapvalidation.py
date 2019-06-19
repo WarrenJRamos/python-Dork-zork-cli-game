@@ -11,13 +11,14 @@ class ValidMaze():
     room_names = []
     room_cardinals = []
     valid_cardinals = ['north', 'east', 'south', 'west']
+    
     def load_rooms(self, maze):
         """
         Loading the room names
         """
         for room_name in maze:
             ValidMaze.room_names = list(maze[room_name].keys())
-
+    
     def load_cardinals(self, maze):
         """
         Loading the room cardinals
