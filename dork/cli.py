@@ -16,7 +16,8 @@ def main(*args):
     else:
         print(*args)
 
-    CommandManager.start()
-    while CommandManager.checkGameOver() == False:
-        CommandManager.readCommand()
-        CommandManager.executeCommand()
+    cm = CommandManager()
+    cm.start()
+    while cm.checkGameOver() == False:
+        cm.readCommand()
+        cm.executeCommand()
