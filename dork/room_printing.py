@@ -1,4 +1,6 @@
 ﻿"""This class prints message to user"""
+
+
 class Room1Printing():
     """This class prints messages"""
 
@@ -7,141 +9,133 @@ class Room1Printing():
         """
         Prints a statement to user after player moves a certain direction
         """
+        direction_room1 = {
+            'north': "You enter the boss room.",
+            'south': "You cannot go/move south.",
+            'east': "There is a table in the room with a donut on top.",
+            'west': "There is a beautiful garden with the roadrunner's" +
+                    "nest right \nin the center of the garden. The nest " +
+                    "has eggs that look about \nready to hatch but no " +
+                    "roadrunner parent to be seen."}
+        direction_room2 = {
+            'north': "You are in the dean’s office. The dean is irritated " +
+                     "that you are \nin the room. You have 1 minute to " +
+                     "make him happy; otherwise, campus \nsecurity will " +
+                     "arrive and take you away.",
+            'south': "You fall to your death.",
+            'east': "You are unable to go East.",
+            'west': "You are inside the Student Success Building. There " +
+                    "is a locked cage \nwith a roadrunner inside. " +
+                    "It looks starving and nervous. \nThere is a " +
+                    "piece of paper next to the cage."}
+        direction_room3 = {
+            'north': "You are in the dean’s office. The dean is irritated " +
+                     "that you are \nin the room. You have 1 minute to " +
+                     "make him happy; otherwise, campus \nsecurity will " +
+                     "arrive and take you away.",
+            'south': "You are unable to go South.",
+            'east': "You are inside the Student Success Building. There " +
+                    "is a locked cage \nwith a roadrunner inside. " +
+                    "It looks starving and nervous. \nThere is a " +
+                    "piece of paper next to the cage.",
+            'west': "You are unable to go West."}
+        direction_room4 = {
+            'north': "The blue door is unlocked, and you enter a room " +
+                     "with a gold key.The dean is blocking the door and " +
+                     "does not let you through. You cannot enter this room.",
+            'south': "You are inside the Student Success Building. " +
+                     "There is a locked cage \nwith a roadrunner inside. " +
+                     "It looks starving and nervous. \nThere is a " +
+                     "piece of paper next to the cage.",
+            'east': "There is a table in the room with a donut on top.",
+            'west': "There is a beautiful garden with the roadrunner's " +
+                    "nest right \nin the center of the garden. The nest " +
+                    "has eggs that look about \nready to hatch but no " +
+                    "roadrunner parent to be seen."}
+        direction_room5 = {
+            'north': "You are unable to go North.",
+            'south': "You are in the dean’s office. The dean is irritated" +
+                     " that you are in \nthe room. You have 1 minute to " +
+                     "make him happy; otherwise, \ncampus security " +
+                     "will arrive and take you away.",
+            'east': "You are unable to go East.",
+            'west': "You are unable to go West."}
+
         if room == "room 1":
-            if direction == "north":
-                print("You enter the boss room.")
-            if direction == "south":
-                print("You cannot go/move south.")
-            if direction == "east":
-                print("There is a table in the room with a donut on top.")
-            if direction == "west":
-                print("There is a beautiful garden with the roadrunner's " +
-                      "nest right \nin the center of the garden. The nest " +
-                      "has eggs that look about \nready to hatch but no " +
-                      "roadrunner parent to be seen.")
+            if direction in direction_room1:
+                print(direction_room1[direction])
 
-        if room == "room 2":
-            if direction == "north":
-                print("You are in the dean’s office. The dean is irritated " +
-                      "that you are \nin the room. You have 1 minute to " +
-                      "make him happy; otherwise, campus \nsecurity will " +
-                      "arrive and take you away.")
-            if direction == "south":
-                print("You fall to your death.")
-            if direction == "east":
-                print("You are unable to go East.")
-            if direction == "west":
-                print("You are inside the Student Success Building. There " +
-                      "is a locked cage \nwith a roadrunner inside. " +
-                      "It looks starving and nervous. \nThere is a " +
-                      "piece of paper next to the cage.")
+        elif room == "room 2":
+            if direction in direction_room2:
+                print(direction_room2[direction])
 
-        if room == "room 3":
-            if direction == "north":
-                print("You are in the dean’s office. The dean is irritated" +
-                      " that you are in \nthe room. You have 1 minute to " +
-                      "make him happy; otherwise, \ncampus security " +
-                      "will arrive and take you away.")
-            if direction == "south":
-                print("You are unable to go South.")
-            if direction == "east":
-                print("You are inside the Student Success Building. There " +
-                      "is a locked cage \nwith a roadrunner inside. " +
-                      "It looks starving and nervous. \nThere is a " +
-                      "piece of paper next to the cage.")
-            if direction == "west":
-                print("You are unable to go West.")
+        elif room == "room 3":
+            if direction in direction_room3:
+                print(direction_room3[direction])
 
-        if room == "room 4":
-            if direction == "north":
-                print("The blue door is unlocked, and you enter a room " +
-                      "with a gold key.")
-                print("The dean is blocking the door and does not " +
-                      "let you through. You cannot enter this room.")
-            if direction == "south":
-                print("You are inside the Student Success Building. " +
-                      "There is a locked cage \nwith a roadrunner inside. " +
-                      "It looks starving and nervous. \nThere is a " +
-                      "piece of paper next to the cage.")
-            if direction == "east":
-                print("There is a table in the room with a donut on top.")
-            if direction == "west":
-                print("There is a beautiful garden with the roadrunner's " +
-                      "nest right \nin the center of the garden. The nest " +
-                      "has eggs that look about \nready to hatch but no " +
-                      "roadrunner parent to be seen.")
+        elif room == "room 4":
+            if direction in direction_room4:
+                print(direction_room4[direction])
 
-        if room == "room 5":
-            if direction == "north":
-                print("You are unable to go North.")
-            if direction == "south":
-                print("You are in the dean’s office. The dean is irritated" +
-                      " that you are in \nthe room. You have 1 minute to " +
-                      "make him happy; otherwise, \ncampus security " +
-                      "will arrive and take you away.")
-            if direction == "east":
-                print("You are unable to go East.")
-            if direction == "west":
-                print("You are unable to go West.")
+        elif room == "room 5":
+            if direction in direction_room5:
+                print(direction_room5[direction])
 
     @classmethod
     def print_look(cls, room, direction):
         """
         Prints a statement after user looks a certain direction
         """
+        direction_room1 = {
+            'north': "There is a door with a sign that says DANGER.",
+            'south': "There is bag of bird food with all sorts of " +
+                     "insects that roadrunners love to eat.",
+            'east': "To the East, there is a sign that says Lounge.",
+            'west': "To the West, there is a sign that says " +
+                    "Roadrunner's Nest"}
+        direction_room2 = {
+            'north': "There is a sign that says DANGER!!",
+            'south': "There is a 1000 ft cliff with spikes.",
+            'east': "There is an empty wall.",
+            'west': "There is a sign that says Student Success " +
+                    "Building."}
+        direction_room3 = {
+            'north': "There is a sign that says DANGER!!",
+            'south': "There is an empty wall.",
+            'east': "There is a sign that says Student Success Building.",
+            'west': "There is an empty wall."}
+        direction_room4 = {
+            'north': "There is blue door that is being guarded by the dean.",
+            'south': "There is a sign that says Student Success Building.",
+            'east': "To the East, there is a sign that says Lounge.",
+            'west': "To the West, there is a sign that says " +
+                    "Roadrunner’s Nest."}
+        direction_room5 = {
+            'north': "There is an empty wall.",
+            'south': "There is a blue door",
+            'east': "There is an empty wall.",
+            'west': "There is an empty wall."}
+
         if room == "room 1":
-            if direction == "north":
-                print("There is a door with a sign that says DANGER.")
-            if direction == "south":
-                print("There is bag of bird food with all sorts of " +
-                      "insects that roadrunners love to eat.")
-            if direction == "east":
-                print("To the East, there is a sign that says Lounge.")
-            if direction == "west":
-                print("To the West, there is a sign that says " +
-                      "Roadrunner's Nest")
+            if direction in direction_room1:
+                print(direction_room1[direction])
 
-        if room == "room 2":
-            if direction == "north":
-                print("There is a sign that says DANGER!!")
-            if direction == "south":
-                print("There is a 1000 ft cliff with spikes.")
-            if direction == "east":
-                print("There is an empty wall.")
-            if direction == "west":
-                print("There is a sign that says Student Success " +
-                      "Building.")
+        elif room == "room 2":
+            if direction in direction_room2:
+                print(direction_room2[direction])
 
-        if room == "room 3":
-            if direction == "north":
-                print("There is a sign that says DANGER!!")
-            if direction == "south":
-                print("There is an empty wall.")
-            if direction == "east":
-                print("There is a sign that says Student Success Building.")
-            if direction == "west":
-                print("There is an empty wall.")
+        elif room == "room 3":
+            if direction in direction_room3:
+                print(direction_room3[direction])
 
-        if room == "room 4":
-            if direction == "north":
-                print("There is blue door that is being guarded by the dean.")
-            if direction == "south":
-                print("There is a sign that says Student Success Building.")
-            if direction == "east":
-                print("To the East, there is a sign that says Lounge.")
-            if direction == "west":
-                print("To the West, there is a sign that says " +
-                      "Roadrunner’s Nest.")
+        elif room == "room 4":
+            if direction in direction_room4:
+                print(direction_room4[direction])
 
-        if room == "room 5":
-            if direction == "north":
-                print("There is an empty wall.")
-            if direction == "south":
-                print("There is a blue door")
-            if direction == "east":
-                print("There is an empty wall.")
-            if direction == "west":
-                print("There is an empty wall.")
+        elif room == "room 5":
+            if direction in direction_room5:
+                print(direction_room5[direction])
+
     @classmethod
     def print_score(cls, score):
         """
@@ -185,7 +179,7 @@ class Room1Printing():
         """
         Print what happens after player open the item.
         """
-        print("You successfully open the " + item +
+        print("You successfully opened the " + item +
               ", and the bird hops on your shoulder. " +
               "The bird is added to your inventory.")
         # Call the add_inventory() method here
@@ -218,7 +212,7 @@ class Room1Printing():
         Print out what happens when the player examines an item
         """
         if item == "paper":
-            print("I don't "+ "like this bird. Dispose of it for me. - Dean")
+            print("I don't " + "like this bird. Dispose of it for me. - Dean")
         elif item == "roadrunner":
             print("The roadrunner is in bad condition. It looks starving " +
                   "and nervous.")
@@ -234,7 +228,7 @@ class Room1Printing():
         """
         print("You currently have:")
         for items in inventory:
-            print(items + " ")
+            print(str(items) + " ")
 
     @classmethod
     def print_eat_food(cls, item):
