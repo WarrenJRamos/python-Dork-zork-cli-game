@@ -64,19 +64,19 @@ class Room1Printing():
             if direction in direction_room1:
                 print(direction_room1[direction])
 
-        if room == "room 2":
+        elif room == "room 2":
             if direction in direction_room2:
                 print(direction_room2[direction])
 
-        if room == "room 3":
+        elif room == "room 3":
             if direction in direction_room3:
                 print(direction_room3[direction])
 
-        if room == "room 4":
+        elif room == "room 4":
             if direction in direction_room4:
                 print(direction_room4[direction])
 
-        if room == "room 5":
+        elif room == "room 5":
             if direction in direction_room5:
                 print(direction_room5[direction])
 
@@ -119,19 +119,19 @@ class Room1Printing():
             if direction in direction_room1:
                 print(direction_room1[direction])
 
-        if room == "room 2":
+        elif room == "room 2":
             if direction in direction_room2:
                 print(direction_room2[direction])
 
-        if room == "room 3":
+        elif room == "room 3":
             if direction in direction_room3:
                 print(direction_room3[direction])
 
-        if room == "room 4":
+        elif room == "room 4":
             if direction in direction_room4:
                 print(direction_room4[direction])
 
-        if room == "room 5":
+        elif room == "room 5":
             if direction in direction_room5:
                 print(direction_room5[direction])
 

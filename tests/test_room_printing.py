@@ -187,7 +187,7 @@ class Room1PrintingTestCase(unittest.TestCase):
 
     def test_print_inventory(self):
         """Tests print_inventory"""
-        inventory_items = []
+        inventory_items = ["donut"]
         inventory = "You currently have:"
         for items in inventory:
             inventory += (str(items) + " ")
