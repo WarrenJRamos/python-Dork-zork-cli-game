@@ -87,16 +87,9 @@ class CommandManager:
         elif self.input_line in inventory:
             self.input_line = "inventory"
 
-    def execute_command(self):
-        """
-        Takes the command from previous method if valid and returns the result
-        """
+    def execute_move(self):
         room_one_prints = Room1Printing()
-        #print(inputLine[0:2] + "   " + inputLine[3:8]) #Debugging
-        if self.input_line == "exit":
-            print("Bye!")
-            self.set_game_over(True)
-        elif self.input_line[0:8] == "go north":
+        if self.input_line[0:8] == "go north":
             room_one_prints.print_move("room 1", "north")
         elif self.input_line[0:8] == "go south":
             room_one_prints.print_move("room 1", "south")
@@ -106,6 +99,18 @@ class CommandManager:
             room_one_prints.print_move("room 1", "west")
         elif self.input_line == "go":
             print("Go where?")
+
+    def execute_command(self):
+        """
+        Takes the command from previous method if valid and returns the result
+        """
+        room_one_prints = Room1Printing()
+        #self.execute_move()
+        if self.input_line == "exit":
+            print("Bye!")
+            self.set_game_over(True)
+        elif self.input_line[0:2] == "go":
+            self.execute_move()
         elif self.input_line == "look":
             room_one_prints.print_look("room 1", self.input_helper)
             direction = ['north', 'south', 'east', 'west']
