@@ -14,7 +14,7 @@ class TestYamlReader(unittest.TestCase):
         """
         reader = YamlReader()
         flag = reader.valid_file_path('dork.yml')
-        self.assertTrue(flag)
+        self.assertFalse(flag)
 
     def test_valid_extension(self):
         """
@@ -32,4 +32,4 @@ class TestYamlReader(unittest.TestCase):
         reader = YamlReader()
         path_file = 'dork.yml'
         flag = isinstance(reader.yaml_loader(path_file), None)
-        self.assertFalse(flag)
+        self.assertTrue(flag)
