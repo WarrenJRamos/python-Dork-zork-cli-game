@@ -6,5 +6,6 @@ pylint
 pytest
 pytest-runner
 pytest-mock
+pyyaml
 Sphinx
 sphinxcontrib-napoleon
