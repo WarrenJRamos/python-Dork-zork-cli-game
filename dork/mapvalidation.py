@@ -34,8 +34,8 @@ class ValidMaze:
         """
         valid_cardinals = ['north', 'east', 'south', 'west']
         invalid_cardinal = False
-
-        for i in enumerate(len(room_cardinals)):
+        scope = range(len(room_cardinals))
+        for i in scope:
             if  list(room_cardinals[i].keys()) != valid_cardinals:
                 invalid_cardinal = True
                 break
@@ -48,8 +48,8 @@ class ValidMaze:
         dual_pointer = False
         invalid_direction = False
         isolated_room = False
-        for i in enumerate(len(room_cardinals)):
-
+        scope = range(len(room_cardinals))
+        for i in scope:
             adjacent_rooms = list(room_cardinals[i].values())
             adjacent_rooms [:] = (room for room in adjacent_rooms if room is not None)
             unique_rooms = set(adjacent_rooms)
@@ -64,17 +64,17 @@ class ValidMaze:
                 break
         return dual_pointer or invalid_direction or isolated_room
     @classmethod
-    def print_actual_maze(cls, room_names, room_cardinals):
+    def print_maze(cls, room_names, room_cardinals):
         """
         Printing the maze
         """
         print('\n')
         print('The rooms are: \n')
-
-        for i in enumerate(room_names):
+        scope = range(len(room_names))
+        for i in scope:
             print('>' + room_names[i])
         print('\n')
-        for i in enumerate(room_names):
+        for i in scope:
             print(room_names[i] + ' is adjacent to: ')
             print('>North:')
             print(room_cardinals[i]['north'])
@@ -85,4 +85,3 @@ class ValidMaze:
             print('>West:')
             print(room_cardinals[i]['south'])
             print('\n \n')
-    
