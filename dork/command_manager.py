@@ -2,10 +2,7 @@
 from dork.room_printing import Room1Printing
 
 class CommandManager:
-    """
-    cli controller
-    """
-
+    """cli controller"""
 
 
 
