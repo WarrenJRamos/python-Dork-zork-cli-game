@@ -17,8 +17,8 @@ def test_read_command(self):
 
 
 def test_direction_shorts(self):
-    assert True
-
+    north = "n"
+    assert north == "n"
 
 def test_execute_move(self):
     assert True
