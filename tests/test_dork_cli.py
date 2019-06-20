@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 """Basic tests for the dork cli
 """
-import unittest
-import pytest
 from types import FunctionType
-from unittest.mock import Mock
 import dork.cli
 
 

@@ -5,7 +5,6 @@ from dork.room_printing import Room1Printing
 class CommandManager:
     """cli controller"""
 
-
     def __init__(self):
         self.game_over = False
         self.input_line = ""
