@@ -50,12 +50,12 @@ class CommandManager:
         self.input_line = input("")
 
         if len(self.input_line) == 1:
-            self.direction_shorts(self.input_line)
+            self.direction_shorts(self.input_line, north, south, east, west)
         elif (self.input_line[0:2] in move or
-            self.input_line[0:3] in move) and (len(self.input_line) < 6):
+              self.input_line[0:3] in move) and (len(self.input_line) < 6):
             self.input_line = "go"
         elif (self.input_line[0:4] in move or
-            self.input_line[0:5] in move) and (len(self.input_line) < 6):
+              self.input_line[0:5] in move) and (len(self.input_line) < 6):
             self.input_line = "go"
         elif self.input_line[0:3] in put:
             self.input_helper = self.input_line[4:len(self.input_line)]
@@ -81,17 +81,17 @@ class CommandManager:
         elif self.input_line in inventory:
             self.input_line = "inventory"
 
-    def direction_shorts(self, s):
+    def direction_shorts(self, s, dirN, dirS, dirE, dirW):
         """
         Handles all of the shortcut moves
         """
-        if self.input_line == "n":
+        if self.input_line in dirN:
             self.input_line = "go north"
-        elif self.input_line == "s":
+        elif self.input_line in dirS:
             self.input_line = "go south"
-        elif self.input_line == "e":
+        elif self.input_line in dirE:
             self.input_line = "go east"
-        elif self.input_line == "w":
+        elif self.input_line in dirW:
             self.input_line = "go west"
     def execute_move(self):
         """
