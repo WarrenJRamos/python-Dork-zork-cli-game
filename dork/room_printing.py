@@ -3,6 +3,7 @@
 class Room1Printing():
     """This class prints messages"""
 
+
     @classmethod
     def print_move(cls, room, direction):
         """
@@ -12,7 +13,7 @@ class Room1Printing():
             'north': "You enter the boss room.",
             'south': "You cannot go/move south.",
             'east': "There is a table in the room with a donut on top.",
-            'west': "There is a beautiful garden with the roadrunner's"  +
+            'west': "There is a beautiful garden with the roadrunner's" +
                     "nest right \nin the center of the garden. The nest " +
                     "has eggs that look about \nready to hatch but no " +
                     "roadrunner parent to be seen."}
@@ -211,7 +212,7 @@ class Room1Printing():
         Print out what happens when the player examines an item
         """
         if item == "paper":
-            print("I don't "+ "like this bird. Dispose of it for me. - Dean")
+            print("I don't " + "like this bird. Dispose of it for me. - Dean")
         elif item == "roadrunner":
             print("The roadrunner is in bad condition. It looks starving " +
                   "and nervous.")
