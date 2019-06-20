@@ -1,11 +1,10 @@
 """This class acts as the controller for the game"""
 from dork.room_printing import Room1Printing
-#input_line = ""
-#input_helper = ""
-#game_over = False
-#player_inventory = [""]
+
 class CommandManager:
     """cli controller"""
+
+
 
     def __init__(self):
         self.game_over = False
@@ -38,7 +37,7 @@ class CommandManager:
         south = ['down', 'south', 's']
         east = ['east', 'e', 'right']
         west = ['west', 'w', 'left']
-        move = ['move', 'walk', 'run', 'skip', 'hop', 'crawl', 'scoot', 'wander', 'go']
+        move = ['move', 'walk', 'run', 'skip', 'go']
 
         look = ['look', 'see', 'peer', 'view']
         get = ['grab', 'get', 'take']
@@ -49,19 +48,14 @@ class CommandManager:
         inventory = ['inventory']
 
         self.input_line = input("")
-        if self.input_line in north:
-            self.input_line = "go north"
-        elif self.input_line in south:
-            self.input_line = "go south"
-        elif self.input_line in east:
-            self.input_line = "go east"
-        elif self.input_line in west:
-            self.input_line = "go west"
+
+        if len(self.input_line) == 1:
+            self.direction_shorts(self.input_line)
         elif (self.input_line[0:2] in move or
-              self.input_line[0:3] in move) and (len(self.input_line) < 6):
+            self.input_line[0:3] in move) and (len(self.input_line) < 6):
             self.input_line = "go"
         elif (self.input_line[0:4] in move or
-              self.input_line[0:5] in move) and (len(self.input_line) < 6):
+            self.input_line[0:5] in move) and (len(self.input_line) < 6):
             self.input_line = "go"
         elif self.input_line[0:3] in put:
             self.input_helper = self.input_line[4:len(self.input_line)]
@@ -87,7 +81,22 @@ class CommandManager:
         elif self.input_line in inventory:
             self.input_line = "inventory"
 
+    def direction_shorts(self, s):
+        """
+        Handles all of the shortcut moves
+        """
+        if self.input_line == "n":
+            self.input_line = "go north"
+        elif self.input_line == "s":
+            self.input_line = "go south"
+        elif self.input_line == "e":
+            self.input_line = "go east"
+        elif self.input_line == "w":
+            self.input_line = "go west"
     def execute_move(self):
+        """
+        Handles all of the move commands
+        """
         room_one_prints = Room1Printing()
         if self.input_line[0:8] == "go north":
             room_one_prints.print_move("room 1", "north")
@@ -105,7 +114,6 @@ class CommandManager:
         Takes the command from previous method if valid and returns the result
         """
         room_one_prints = Room1Printing()
-        #self.execute_move()
         if self.input_line == "exit":
             print("Bye!")
             self.set_game_over(True)
