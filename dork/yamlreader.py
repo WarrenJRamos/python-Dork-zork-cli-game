@@ -28,7 +28,7 @@ class YamlReader:
         file_extension = os.path.splitext(file_path)
         valid_extension = file_extension[1] == '.yml' or file_extension[1] == '.yaml'
         return valid_extension
-        
+
     @classmethod
     def yaml_loader(cls, file_path):
         """
