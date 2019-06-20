@@ -2,6 +2,7 @@
 import os
 import yaml
 
+
 class YamlReader:
     """
     A .yml/.ymal reader
@@ -38,4 +39,3 @@ class YamlReader:
         with open(file_path, "r") as file:
             data = yaml.safe_load(file)
         return data
-        

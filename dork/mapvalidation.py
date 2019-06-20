@@ -2,6 +2,7 @@
 A class that validates a maze coming from a .yml/.yaml file
 """
 
+
 class ValidMaze:
     """
     A valid maze
@@ -41,7 +42,7 @@ class ValidMaze:
         invalid_cardinal = False
         scope = range(len(room_cardinals))
         for i in scope:
-            if  list(room_cardinals[i].keys()) != valid_cardinals:
+            if list(room_cardinals[i].keys()) != valid_cardinals:
                 invalid_cardinal = True
                 break
         return invalid_cardinal
@@ -57,7 +58,7 @@ class ValidMaze:
         scope = range(len(room_cardinals))
         for i in scope:
             adjacent_rooms = list(room_cardinals[i].values())
-            adjacent_rooms [:] = (
+            adjacent_rooms[:] = (
                 room for room in adjacent_rooms if room is not None)
             unique_rooms = set(adjacent_rooms)
             if len(adjacent_rooms) != len(unique_rooms):
