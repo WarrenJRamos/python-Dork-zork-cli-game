@@ -1,9 +1,9 @@
 """This class acts as the controller for the game"""
 from dork.room_printing import Room1Printing
 
+
 class CommandManager:
     """cli controller"""
-
 
 
     def __init__(self):
@@ -33,10 +33,6 @@ class CommandManager:
         Reads command from the console, translates and returns the command
         """
 
-        north = ['up', 'north', 'n']
-        south = ['down', 'south', 's']
-        east = ['east', 'e', 'right']
-        west = ['west', 'w', 'left']
         move = ['move', 'walk', 'run', 'skip', 'go']
 
         look = ['look', 'see', 'peer', 'view']
@@ -50,7 +46,7 @@ class CommandManager:
         self.input_line = input("")
 
         if len(self.input_line) == 1:
-            self.direction_shorts(self.input_line, north, south, east, west)
+            self.direction_shorts()
         elif (self.input_line[0:2] in move or
               self.input_line[0:3] in move) and (len(self.input_line) < 6):
             self.input_line = "go"
@@ -81,17 +77,17 @@ class CommandManager:
         elif self.input_line in inventory:
             self.input_line = "inventory"
 
-    def direction_shorts(self, dir_n, dir_s, dir_e, dir_w):
+    def direction_shorts(self):
         """
         Handles all of the shortcut moves
         """
-        if self.input_line in dir_n:
+        if self.input_line == "n":
             self.input_line = "go north"
-        elif self.input_line in dir_s:
+        elif self.input_line == "s":
             self.input_line = "go south"
-        elif self.input_line in dir_e:
+        elif self.input_line == "e":
             self.input_line = "go east"
-        elif self.input_line in dir_w:
+        elif self.input_line == "w":
             self.input_line = "go west"
 
     def execute_move(self):
