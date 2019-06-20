@@ -2,6 +2,7 @@
 import unittest
 from dork.yamlreader import YamlReader
 
+
 class TestYamlReader(unittest.TestCase):
     """
     Testing YamlReader
@@ -23,7 +24,7 @@ class TestYamlReader(unittest.TestCase):
         path_file = 'dork.yml'
         flag = reader.valid_extension(path_file)
         self.assertTrue(flag)
-        
+
     def test_yaml_loader(self):
         """
         Testing the yaml_loader method

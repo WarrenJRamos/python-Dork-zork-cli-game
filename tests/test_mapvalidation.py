@@ -23,7 +23,7 @@ class TestValidMaze(unittest.TestCase):
         Testing the loading cardinal methods
         """
         maze = ValidMaze()
-        dummy_maze = {'Entrance':{'North': 'Main Hall'}}
+        dummy_maze = {'Entrance': {'North': 'Main Hall'}}
         flag = isinstance(maze.load_cardinals(dummy_maze), list)
         self.assertTrue(flag)
 
@@ -40,7 +40,8 @@ class TestValidMaze(unittest.TestCase):
         Testing the check cardinal method
         """
         maze = ValidMaze()
-        invalidad_cardinals = [{'Home': None, 'School': None, 'Office': None, 'Gym': None}]
+        invalidad_cardinals = [
+            {'Home': None, 'School': None, 'Office': None, 'Gym': None}]
         invalid_flag = maze.check_cardinals(invalidad_cardinals)
         self.assertTrue(invalid_flag)
 

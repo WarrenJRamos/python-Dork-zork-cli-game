@@ -180,7 +180,7 @@ class Room1PrintingTestCase(unittest.TestCase):
             "lots of pain but was able to call security to take " +
             "you away. GAME OVER.")
         # if Room1Printing.print_attack("dean"):
-            # assert command_manage.set_game_over(True)
+        # assert command_manage.set_game_over(True)
         assert Room1Printing.print_attack("bob") == print(
             "You cannot attack bob")
 
