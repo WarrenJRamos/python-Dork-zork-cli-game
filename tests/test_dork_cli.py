@@ -2,6 +2,7 @@
 """Basic tests for the dork cli
 """
 import unittest
+import pytest
 from types import FunctionType
 from unittest.mock import Mock
 import dork.cli
@@ -22,6 +23,5 @@ def test_cli_help(run):
     """CLI's help command should return helpful information
     """
     out, err = run(dork.cli.main, "-h")
-    out, err = run(dork.cli.main(mock_cli), "-h")
     assert "usage: " in out, \
         "Failed to run the cli.main method: {err}".format(err=err)
