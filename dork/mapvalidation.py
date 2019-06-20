@@ -1,10 +1,12 @@
 """
 A class that validates a maze coming from a .yml/.yaml file
 """
+
 class ValidMaze:
     """
     A valid maze
     """
+
     @classmethod
     def load_rooms(cls, maze):
         """
@@ -13,6 +15,7 @@ class ValidMaze:
         for room_name in maze:
             room_names = list(maze[room_name].keys())
         return room_names
+
     @classmethod
     def load_cardinals(cls, maze):
         """
@@ -21,12 +24,14 @@ class ValidMaze:
         for room_name in maze:
             room_cardinals = list(maze[room_name].values())
         return room_cardinals
+
     @classmethod
     def check_rooms(cls, room_names):
         """
         Checking room names for valid names
         """
         return None in room_names
+
     @classmethod
     def check_cardinals(cls, room_cardinals):
         """
@@ -40,6 +45,7 @@ class ValidMaze:
                 invalid_cardinal = True
                 break
         return invalid_cardinal
+
     @classmethod
     def check_connections(cls, room_names, room_cardinals):
         """
@@ -51,7 +57,8 @@ class ValidMaze:
         scope = range(len(room_cardinals))
         for i in scope:
             adjacent_rooms = list(room_cardinals[i].values())
-            adjacent_rooms [:] = (room for room in adjacent_rooms if room is not None)
+            adjacent_rooms [:] = (
+                room for room in adjacent_rooms if room is not None)
             unique_rooms = set(adjacent_rooms)
             if len(adjacent_rooms) != len(unique_rooms):
                 dual_pointer = True
@@ -63,6 +70,7 @@ class ValidMaze:
                 isolated_room = True
                 break
         return dual_pointer or invalid_direction or isolated_room
+
     @classmethod
     def print_maze(cls, room_names, room_cardinals):
         """
