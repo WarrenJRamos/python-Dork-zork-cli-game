@@ -11,7 +11,8 @@ class YamlReader:
         """
         user inputing file path
         """
-        return input('Please type a valid file path for your .yml or .yaml file:\n')
+        return input('Please type a valid file path for your ' +
+                     '.yml or .yaml file:\n')
 
     @classmethod
     def valid_file_path(cls, file_path):
