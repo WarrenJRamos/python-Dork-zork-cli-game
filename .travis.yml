@@ -21,7 +21,6 @@ script:
   - coverage erase
   - coverage run --branch --source=dork --omit=dork/__main__.py -m pytest
   - coverage report -m
-  - sonar-scanner
   
 after_success:
   - coverage xml -i
