@@ -1,15 +1,27 @@
 from dork.command_manager import CommandManager
 import unittest
 
-def test_check_game_over(self):
+@classmethod
+def test_check_game_over(cls):
+    CommandManager.check_game_over()
     assert True
-def set_game_over(self, cond):
+
+@classmethod
+def set_game_over(cls, cond):
     assert True
-def read_command(self):
+
+@classmethod
+def read_command(cls):
     assert True
-def direction_shorts(self):
+
+@classmethod
+def direction_shorts(cls):
     assert True
-def execute_move(self):
+
+@classmethod
+def execute_move(cls):
     assert True
-def execute_command(self):
+
+@classmethod
+def execute_command(cls):
     assert True
