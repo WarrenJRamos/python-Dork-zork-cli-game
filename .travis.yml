@@ -5,9 +5,9 @@ python:
 
 addons:
   sonarcloud:
-    organization: "SONAR_ORGANIZATION"
-    token: "SONAR_PROJECT_KEY"
-      secure: "SONAR_TOKEN"
+    organization: "$SONAR_ORGANIZATION"
+    token: 
+      secure: "$SONAR_TOKEN"
 
 before_install:
   - pip install -U pip
@@ -21,7 +21,6 @@ script:
   - coverage erase
   - coverage run --branch --source=dork --omit=dork/__main__.py -m pytest
   - coverage report -m
-  - sonar-scanner
   
 after_success:
   - coverage xml -i
