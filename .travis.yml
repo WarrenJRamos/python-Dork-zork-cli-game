@@ -6,7 +6,7 @@ python:
 addons:
   sonarcloud:
     organization: "SONAR_ORGANIZATION"
-    token:
+    token: "SONAR_PROJECT_KEY"
       secure: "SONAR_TOKEN"
 
 before_install:
