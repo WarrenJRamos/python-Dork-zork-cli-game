@@ -3,10 +3,12 @@ import unittest
 from dork.room_printing import Room1Printing
 from dork.command_manager import CommandManager
 
+
 class Room1PrintingTestCase(unittest.TestCase):
     """Test for room_printing"""
 
-    def test_print_move(self):
+    @classmethod
+    def test_print_move(cls):
         """Tests print_move"""
         assert Room1Printing.print_move("room 1", "north") == print(
             "You enter the boss room.")
@@ -75,7 +77,8 @@ class Room1PrintingTestCase(unittest.TestCase):
         assert Room1Printing.print_move("room 5", "west") == print(
             "You are unable to go West.")
 
-    def test_print_look(self):
+    @classmethod
+    def test_print_look(cls):
         """Tests print_look"""
         assert Room1Printing.print_look("room 1", "north") == print(
             'There is a door with a sign that says DANGER.')
@@ -122,46 +125,54 @@ class Room1PrintingTestCase(unittest.TestCase):
         assert Room1Printing.print_look("room 5", "west") == print(
             "There is an empty wall.")
 
-    def test_print_score(self):
+    @classmethod
+    def test_print_score(cls):
         """Tests print_score"""
         assert Room1Printing.print_score(5) == print(
             "You have a score of " + str(5))
 
-    def test_print_diagnostic(self):
+    @classmethod
+    def test_print_diagnostic(cls):
         """Tests print_diagnostic"""
         assert Room1Printing.print_diagnostic(10) == print(
             "You have a health score of: " + str(10))
 
-    def test_print_get(self):
+    @classmethod
+    def test_print_get(cls):
         """Tests print_get"""
         assert Room1Printing.print_get("donut") == print(
             "You put the donut in your inventory")
 
-    def test_print_read(self):
+    @classmethod
+    def test_print_read(cls):
         """Tests print_read"""
         assert Room1Printing.print_read("paper") == print(
             "I don't like this bird. Dispose of it for me. - Dean")
         assert Room1Printing.print_read("notpaper") == print(
             "notpaper was not found")
 
-    def test_print_drop_item(self):
+    @classmethod
+    def test_print_drop_item(cls):
         """Tests print_drop_item"""
         assert Room1Printing.print_drop_item() == print(
             "CHANGE THIS FOR FUTURE SPRINT")
 
-    def test_print_open_item(self):
+    @classmethod
+    def test_print_open_item(cls):
         """Tests print_open_item"""
         assert Room1Printing.print_open_item("cage") == print(
             "You successfully opened the cage" +
             ", and the bird hops on your shoulder. " +
             "The bird is added to your inventory.")
 
-    def test_print_move_moveable(self):
+    @classmethod
+    def test_print_move_moveable(cls):
         """Tests print_move_moveable"""
         assert Room1Printing.print_move_moveable() == print(
             "CHANGE THIS LATER")
 
-    def test_print_attack(self):
+    @classmethod
+    def test_print_attack(cls):
         """Tests print_attack"""
         command_manage = CommandManager()
         assert Room1Printing.print_attack("dean") == print(
@@ -173,7 +184,8 @@ class Room1PrintingTestCase(unittest.TestCase):
         assert Room1Printing.print_attack("bob") == print(
             "You cannot attack bob")
 
-    def test_print_examine(self):
+    @classmethod
+    def test_print_examine(cls):
         """Tests print_examine"""
         assert Room1Printing.print_examine("paper") == print(
             "I don't " + "like this bird. Dispose of it for me. - Dean")
@@ -185,7 +197,8 @@ class Room1PrintingTestCase(unittest.TestCase):
         assert Room1Printing.print_examine("whatever") == print(
             "whatever is unable to be examined")
 
-    def test_print_inventory(self):
+    @classmethod
+    def test_print_inventory(cls):
         """Tests print_inventory"""
         inventory_items = ["donut"]
         inventory = "You currently have:"
@@ -194,7 +207,8 @@ class Room1PrintingTestCase(unittest.TestCase):
         assert Room1Printing.print_inventory(inventory_items) == print(
             inventory)
 
-    def test_print_eat_food(self):
+    @classmethod
+    def test_print_eat_food(cls):
         """Tests print_eat_food"""
         assert Room1Printing.print_eat_food("donut") == print(
             "The donut is yummy. Unfortunately, the player dies " +
@@ -202,7 +216,8 @@ class Room1PrintingTestCase(unittest.TestCase):
         assert Room1Printing.print_eat_food("fruit") == print(
             "fruit is not something you can eat.")
 
-    def test_print_feed_creature(self):
+    @classmethod
+    def test_print_feed_creature(cls):
         """Tests print_feed_creature"""
         assert Room1Printing.print_feed_creature("donut") == print(
             "Through one of the tiny openings in the cage, you drop " +
@@ -216,10 +231,12 @@ class Room1PrintingTestCase(unittest.TestCase):
         assert Room1Printing.print_feed_creature(None) == print(
             "There is nothing to feed the bird with.")
 
-    def test_print_give_item(self):
+    @classmethod
+    def test_print_give_item(cls):
         """Tests print_give_item"""
         assert Room1Printing.print_give_item() == print(
             'CHANGE THIS LATER')
+
 
 if __name__ == '__main__':
     unittest.main()

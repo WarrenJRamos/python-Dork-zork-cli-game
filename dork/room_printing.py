@@ -1,8 +1,8 @@
 ﻿"""This class prints message to user"""
 
+
 class Room1Printing():
     """This class prints messages"""
-
 
     @classmethod
     def print_move(cls, room, direction):
