@@ -31,5 +31,5 @@ class TestYamlReader(unittest.TestCase):
         """
         reader = YamlReader()
         path_file = 'dork.yml'
-        flag = isinstance(reader.yaml_loader(path_file), None)
-        self.assertTrue(flag)
+        with self.assertRaises(FileNotFoundError):
+            reader.yaml_loader(path_file)
