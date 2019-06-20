@@ -1,6 +1,4 @@
-"""
-A parser for .yml and .ymal files.
-"""
+"""A parser for .yml and .ymal files."""
 import os
 import yaml
 
@@ -14,12 +12,14 @@ class YamlReader:
         user inputing file path
         """
         return input('Please type a valid file path for your .yml or .yaml file:\n')
+
     @classmethod
     def valid_file_path(cls, file_path):
         """
         checking for valid file path and valid extension
         """
         return os.path.isfile(file_path)
+
     @classmethod
     def valid_extension(cls, file_path):
         """
@@ -28,6 +28,7 @@ class YamlReader:
         file_extension = os.path.splitext(file_path)
         valid_extension = file_extension[1] == '.yml' or file_extension[1] == '.yaml'
         return valid_extension
+        
     @classmethod
     def yaml_loader(cls, file_path):
         """
