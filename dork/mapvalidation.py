@@ -71,26 +71,3 @@ class ValidMaze:
                 isolated_room = True
                 break
         return dual_pointer or invalid_direction or isolated_room
-
-    @classmethod
-    def print_maze(cls, room_names, room_cardinals):
-        """
-        Printing the maze
-        """
-        print('\n')
-        print('The rooms are: \n')
-        scope = range(len(room_names))
-        for i in scope:
-            print('>' + room_names[i])
-        print('\n')
-        for i in scope:
-            print(room_names[i] + ' is adjacent to: ')
-            print('>North:')
-            print(room_cardinals[i]['north'])
-            print('>East:')
-            print(room_cardinals[i]['east'])
-            print('>South:')
-            print(room_cardinals[i]['west'])
-            print('>West:')
-            print(room_cardinals[i]['south'])
-            print('\n \n')
