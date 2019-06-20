@@ -8,14 +8,6 @@ class YamlReader:
     A .yml/.ymal reader
     """
     @classmethod
-    def user_input(cls):
-        """
-        user inputing file path
-        """
-        return input('Please type a valid file path for your ' +
-                     '.yml or .yaml file:\n')
-
-    @classmethod
     def valid_file_path(cls, file_path):
         """
         checking for valid file path and valid extension
