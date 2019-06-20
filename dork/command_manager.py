@@ -2,7 +2,10 @@
 from dork.room_printing import Room1Printing
 
 class CommandManager:
-    """cli controller"""
+    """
+    cli controller
+    """
+
 
 
 
@@ -81,18 +84,19 @@ class CommandManager:
         elif self.input_line in inventory:
             self.input_line = "inventory"
 
-    def direction_shorts(self, s, dirN, dirS, dirE, dirW):
+    def direction_shorts(self, dir_n, dir_s, dir_e, dir_w):
         """
         Handles all of the shortcut moves
         """
-        if self.input_line in dirN:
+        if self.input_line in dir_n:
             self.input_line = "go north"
-        elif self.input_line in dirS:
+        elif self.input_line in dir_s:
             self.input_line = "go south"
-        elif self.input_line in dirE:
+        elif self.input_line in dir_e:
             self.input_line = "go east"
-        elif self.input_line in dirW:
+        elif self.input_line in dir_w:
             self.input_line = "go west"
+
     def execute_move(self):
         """
         Handles all of the move commands
