@@ -10,18 +10,12 @@ def main(*args):
     """Main CLI runner for Dork
     """
     script_name = args[0] if args else '???'
-    command_manage = CommandManager()
-    command_manage.start()
-    while command_manage.check_game_over() is not True:
-        command_manage.read_command()
-        command_manage.execute_command()
+    
     if "-h" in args or '--help' in args:
         print("usage:", script_name, "[-h]")
     else:
         print(*args)
-
-    #command_manage = CommandManager()
-    #command_manage.start()
-    #while command_manage.check_game_over() is not True:
-    #    command_manage.read_command()
-    #    command_manage.execute_command()
+    command_manage = CommandManager()
+    while command_manage.check_game_over() is not True:
+        command_manage.read_command()
+        command_manage.execute_command()

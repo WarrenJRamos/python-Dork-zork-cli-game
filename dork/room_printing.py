@@ -1,9 +1,9 @@
 ﻿"""This class prints message to user"""
 
-
 class Room1Printing():
     """This class prints messages"""
 
+   
     @classmethod
     def print_move(cls, room, direction):
         """
@@ -200,9 +200,8 @@ class Room1Printing():
             print("You run up to the dean and start punching him. He is in " +
                   "lots of pain but was able to call security to take " +
                   "you away. GAME OVER.")
-            from dork.command_manager import CommandManager
-            command_manage = CommandManager()
-            command_manage.set_game_over(True)
+            import sys
+            sys.exit(0)
         else:
             print("You cannot attack " + creature)
 
@@ -238,9 +237,8 @@ class Room1Printing():
         if item == "donut":
             print("The donut is yummy. Unfortunately, the player dies " +
                   "as THE DONUT IS POISONOUS!!! GAME OVER")
-            from dork.command_manager import CommandManager
-            command_manage = CommandManager()
-            command_manage.set_game_over(True)
+            import sys
+            sys.exit(0)
         else:
             print(item + "is not something you can eat.")
 
@@ -254,9 +252,8 @@ class Room1Printing():
                   "the donut into the cage. The roadrunner finished the " +
                   "donut AND DIES!!! You figure out the donut is " +
                   "poisonous! GAME OVER!")
-            from dork.command_manager import CommandManager
-            command_manage = CommandManager()
-            command_manage.set_game_over(True)
+            import sys
+            sys.exit(0)
         if food == "bird food":
             print("Through one of the tiny openings in the cage, you " +
                   "drop some bird food into the cage. The roadrunner " +
