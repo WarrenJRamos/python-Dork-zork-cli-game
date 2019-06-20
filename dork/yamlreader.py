@@ -27,7 +27,7 @@ class YamlReader:
         validating .yml or .ymal extension
         """
         file_extension = os.path.splitext(file_path)
-        valid_extension = file_extension[1] == '.yml' or file_extension[1] == '.yaml'
+        valid_extension = file_extension[1] == '.yml'
         return valid_extension
 
     @classmethod
