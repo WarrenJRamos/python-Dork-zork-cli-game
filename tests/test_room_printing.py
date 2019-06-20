@@ -1,7 +1,7 @@
 """Test for room_printing"""
 import unittest
 from dork.room_printing import Room1Printing
-from dork.command_manager import CommandManager
+# from dork.command_manager import CommandManager
 
 
 class Room1PrintingTestCase(unittest.TestCase):
@@ -174,13 +174,13 @@ class Room1PrintingTestCase(unittest.TestCase):
     @classmethod
     def test_print_attack(cls):
         """Tests print_attack"""
-        command_manage = CommandManager()
+        # command_manage = CommandManager()
         assert Room1Printing.print_attack("dean") == print(
             "You run up to the dean and start punching him. He is in " +
             "lots of pain but was able to call security to take " +
             "you away. GAME OVER.")
-        if Room1Printing.print_attack("dean"):
-            assert command_manage.set_game_over(True)
+        # if Room1Printing.print_attack("dean"):
+            # assert command_manage.set_game_over(True)
         assert Room1Printing.print_attack("bob") == print(
             "You cannot attack bob")
 
